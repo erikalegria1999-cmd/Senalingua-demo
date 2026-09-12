@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SENA Lingua</title>
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    
+    <!-- NAVBAR -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    SENA <span>Lingua</span>
+                </a>
+                <!-- Checkbox invisible para menú mobile responsivo (Sin JS) -->
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                <label for="menu-toggle" class="mobile-menu-btn" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <!-- Enlaces de navegación -->
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="practice.html">Practice</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+                <!-- Botones de Acción -->
+                <div class="nav-buttons">
+                    <a href="login.html" class="login-btn">Log In</a>
+                    <a href="register.html" class="register-btn">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content" style="flex: 1; padding: 3rem 1.5rem;">
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Columna 1: Marca & Descripción -->
+            <div class="footer-col footer-brand">
+                <a href="index.html" class="logo">
+                    SENA <span>Lingua</span>
+                </a>
+                <p class="footer-description">
+                    Empower your language learning with the official interactive platform designed for the SENA community.
+                </p>
+            </div>
+            <!-- Columna 2: Navegación -->
+            <div class="footer-col">
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="practice.html">Practice</a></li>
+                </ul>
+            </div>
+            <!-- Columna 3: Recursos -->
+            <div class="footer-col">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="resources.html">Library</a></li>
+                    <li><a href="#">Study Guides</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <!-- Columna 4: Comunidad & Redes -->
+            <div class="footer-col">
+                <h4 class="footer-title">Community</h4>
+                <p class="footer-info">Connect with fellow learners and practice daily.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn" translate="no" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-btn" translate="no" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-btn" translate="no" aria-label="X / Twitter">X</a>
+                </div>
+            </div>
+        </div>
+        <!-- Barra Inferior (Copyright & Legal) -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 SENA Lingua. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
