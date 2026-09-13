@@ -1,0 +1,1376 @@
+/* === variables.css === */
+:root, :host {
+    /* ── User palette ── */
+    --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --color-red-50: #f5dfdf;
+    --color-red-100: #f2b5b5;
+    --color-red-200: #ee8d8d;
+    --color-red-400: #e63b3b;
+    --color-red-500: #e11111;
+    --color-red-600: #b91c1c;
+    --color-red-700: #991b1b;
+    --color-red-800: #7f1d1d;
+    --color-orange-500: #fe6e00;
+    --color-orange-600: #f05100;
+    --color-yellow-50: #fefce8;
+    --color-yellow-100: #fef9c2;
+    --color-yellow-200: #fff085;
+    --color-yellow-300: #ffe02a;
+    --color-yellow-400: #fac800;
+    --color-yellow-500: #edb200;
+    --color-yellow-600: #cd8900;
+    --color-yellow-700: #a36100;
+    --color-yellow-800: #874b00;
+    --color-yellow-900: #733e0a;
+    --color-green-50: #f0fdf4;
+    --color-green-100: #dcfce7;
+    --color-green-200: #b9f8cf;
+    --color-green-400: #05df72;
+    --color-green-500: #00c758;
+    --color-green-600: #00a544;
+    --color-green-700: #008138;
+    --color-green-800: #016630;
+    --color-emerald-500: #00bb7f;
+    --color-emerald-600: #009767;
+    --color-teal-400: #00d3bd;
+    --color-blue-50: #e0e7f6;
+    --color-blue-200: #a3b9e8;
+    --color-blue-400: #6688d8;
+    --color-blue-500: #4a70d0;
+    --color-blue-600: #2d58c8;
+    --color-blue-700: #0f3fc0;
+    --color-blue-800: #0024b8;
+    --color-blue-900: #0010a0;
+    --color-purple-50: #f1e9f2;
+    --color-purple-200: #c599c3;
+    --color-purple-300: #ab6aa8;
+    --color-purple-500: #81217d;
+    --color-purple-600: #751d72;
+    --color-purple-800: #471245;
+    --color-purple-900: #360e35;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    --color-neutral-50: #fafafa;
+    --color-neutral-900: #171717;
+    --color-black: #000;
+    --color-white: #fff;
+
+    /* ── Semantic tokens ── */
+    --font-display: var(--font-sans);
+    --bg-app: #f4faf6;
+    --bg-white: var(--color-white);
+    --text-primary: var(--color-gray-900);
+    --text-muted: var(--color-gray-600);
+    --text-subtle: var(--color-gray-400);
+    --sena-green: var(--color-green-600);
+    --sena-green-hover: var(--color-green-700);
+    --sena-green-soft: var(--color-green-50);
+    --sena-orange: var(--color-orange-600);
+    --border-light: var(--color-gray-200);
+    --border-default: var(--color-gray-300);
+    --border-accent: color-mix(in srgb, var(--color-green-500) 28%, var(--color-gray-200));
+    --glass-border: var(--border-default);
+    --glass-bg: color-mix(in srgb, var(--color-white) 85%, transparent);
+
+    /* ── Living gradients ── */
+    --gradient-brand: linear-gradient(135deg, var(--color-green-600) 0%, var(--color-emerald-500) 50%, var(--color-teal-400) 100%);
+    --gradient-hero-text: linear-gradient(120deg, var(--color-green-700) 0%, var(--color-green-500) 40%, var(--color-teal-400) 100%);
+    --gradient-warm: linear-gradient(135deg, var(--color-yellow-50) 0%, var(--color-green-50) 50%, var(--color-blue-50) 100%);
+    --gradient-subtle: linear-gradient(160deg, var(--color-white) 0%, var(--color-green-50) 60%, var(--color-blue-50) 100%);
+    --gradient-marquee: linear-gradient(90deg, var(--color-green-50), var(--color-yellow-50), var(--color-blue-50), var(--color-purple-50), var(--color-green-50));
+    --gradient-mesh-green: radial-gradient(ellipse 55% 45% at 8% 12%, color-mix(in srgb, var(--color-green-200) 55%, transparent), transparent 68%);
+    --gradient-mesh-yellow: radial-gradient(ellipse 50% 40% at 92% 18%, color-mix(in srgb, var(--color-yellow-200) 45%, transparent), transparent 65%);
+    --gradient-mesh-blue: radial-gradient(ellipse 45% 38% at 75% 88%, color-mix(in srgb, var(--color-blue-200) 40%, transparent), transparent 62%);
+    --gradient-mesh-purple: radial-gradient(ellipse 40% 35% at 15% 85%, color-mix(in srgb, var(--color-purple-200) 35%, transparent), transparent 60%);
+
+    /* ── Auth (pastel, matches mesh background) ── */
+    --gradient-auth-text: linear-gradient(120deg, var(--color-green-500) 0%, var(--color-green-400) 42%, var(--color-teal-400) 100%);
+    --gradient-auth-cta: linear-gradient(135deg, var(--color-green-400) 0%, var(--color-emerald-500) 52%, var(--color-teal-400) 100%);
+    --gradient-auth-glow: linear-gradient(135deg, var(--color-green-100), var(--color-yellow-100), var(--color-blue-100), var(--color-purple-100), var(--color-green-100));
+    --auth-surface: color-mix(in srgb, var(--color-white) 92%, var(--color-green-50));
+    --auth-surface-input: color-mix(in srgb, var(--color-white) 96%, var(--color-green-50));
+    --auth-border: color-mix(in srgb, var(--color-white) 55%, var(--color-green-100));
+    --auth-border-focus: color-mix(in srgb, var(--color-green-300) 70%, var(--color-green-200));
+    --auth-text-soft: color-mix(in srgb, var(--color-gray-500) 75%, var(--color-green-600));
+    --auth-text-label: color-mix(in srgb, var(--color-gray-500) 65%, var(--color-green-500));
+    --shadow-auth: 0 6px 28px color-mix(in srgb, var(--color-green-200) 40%, transparent);
+    --shadow-auth-glow: 0 4px 16px color-mix(in srgb, var(--color-green-300) 22%, transparent);
+    --gradient-role-apprentice: linear-gradient(135deg, var(--color-green-50), var(--color-green-100), var(--color-blue-50), var(--color-green-100));
+    --gradient-role-instructor: linear-gradient(135deg, var(--color-yellow-50), var(--color-yellow-100), var(--color-red-50), var(--color-yellow-50));
+    --role-text-title: color-mix(in srgb, var(--color-gray-700) 80%, var(--color-green-600));
+    --role-cta-green: color-mix(in srgb, var(--color-green-500) 75%, var(--color-gray-600));
+    --role-cta-warm: color-mix(in srgb, var(--color-yellow-600) 70%, var(--color-orange-500));
+
+    /* ── Shape & motion ── */
+    --radius-xl: 20px;
+    --radius-lg: 14px;
+    --radius-md: 10px;
+    --radius-sm: 6px;
+    --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.35s var(--ease-premium);
+    --transition-fast: all 0.18s var(--ease-smooth);
+
+    /* ── Depth ── */
+    --shadow-xs: 0 1px 2px color-mix(in srgb, var(--color-gray-900) 5%, transparent);
+    --shadow-sm: 0 2px 10px color-mix(in srgb, var(--color-green-600) 8%, transparent);
+    --shadow-md: 0 8px 28px color-mix(in srgb, var(--color-green-600) 10%, transparent);
+    --shadow-card: 0 1px 3px color-mix(in srgb, var(--color-gray-900) 4%, transparent), 0 6px 20px color-mix(in srgb, var(--color-green-500) 7%, transparent);
+    --shadow-soft: var(--shadow-card);
+    --shadow-glow-green: 0 4px 20px color-mix(in srgb, var(--color-green-500) 22%, transparent);
+
+    /* ── Spacing ── */
+    --space-section: 5.5rem;
+    --space-block: 2rem;
+}
+
+
+/* === main.css (layout base: header, footer, fondo ambient) === */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--bg-app);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* ── Ambient — soft color washes ── */
+.ambient-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        var(--gradient-mesh-green),
+        var(--gradient-mesh-yellow),
+        var(--gradient-mesh-blue),
+        var(--gradient-mesh-purple),
+        var(--gradient-warm);
+}
+
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.55;
+    will-change: transform;
+}
+
+.ambient-orb--green {
+    width: 420px;
+    height: 420px;
+    top: -8%;
+    left: -6%;
+    background: var(--color-green-200);
+    animation: orbDrift 20s ease-in-out infinite;
+}
+
+.ambient-orb--warm {
+    width: 360px;
+    height: 360px;
+    top: 35%;
+    right: -4%;
+    background: var(--color-yellow-200);
+    animation: orbDrift 24s ease-in-out infinite reverse;
+}
+
+.ambient-orb--cool {
+    width: 300px;
+    height: 300px;
+    bottom: -5%;
+    left: 30%;
+    background: var(--color-blue-200);
+    animation: orbDrift 22s ease-in-out infinite 3s;
+}
+
+/* ── Layout ── */
+#app-root {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem 5rem;
+    max-width: 1120px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ── Header ── */
+.global-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--color-white) 78%, var(--color-green-50));
+    backdrop-filter: blur(14px) saturate(1.3);
+    border-bottom: 1px solid var(--border-accent);
+    padding: 0.9rem 2rem;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1120px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.logo-brand:hover { opacity: 0.85; }
+
+.logo-mark { display: flex; }
+
+.logo-icon-bg {
+    fill: var(--color-green-100);
+    stroke: color-mix(in srgb, var(--color-green-500) 35%, transparent);
+    stroke-width: 1;
+}
+
+.logo-icon { color: var(--color-green-600); }
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.logo-bracket {
+    color: var(--color-blue-500);
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+.logo-accent {
+    background: var(--gradient-hero-text);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+}
+
+.btn-nav-back {
+    background: var(--bg-white);
+    border: 1px solid var(--border-default);
+    color: var(--text-muted);
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.84rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-nav-back:hover {
+    border-color: var(--border-accent);
+    color: var(--color-green-700);
+    background: var(--sena-green-soft);
+}
+
+.platform-badge {
+    font-size: 0.75rem;
+    background: linear-gradient(135deg, var(--color-green-50), var(--color-green-100));
+    padding: 0.38rem 0.85rem;
+    border-radius: 50px;
+    color: var(--color-green-700);
+    font-weight: 600;
+    border: 1px solid var(--border-accent);
+    letter-spacing: 0.01em;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+}
+
+.btn-lang-selector {
+    background: var(--bg-white);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 0.84rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-lang-selector:hover {
+    border-color: color-mix(in srgb, var(--color-blue-500) 40%, var(--border-default));
+    background: var(--color-blue-50);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-green-500);
+    outline-offset: 2px;
+}
+
+/* ── Footer ── */
+.global-footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--border-accent);
+    background: color-mix(in srgb, var(--color-white) 80%, var(--color-green-50));
+    backdrop-filter: blur(8px);
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.footer-brand {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--color-green-600);
+    letter-spacing: 0.04em;
+}
+
+.global-footer p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-subtle);
+}
+
+@media (max-width: 640px) {
+    .global-header { padding: 0.75rem 1.25rem; }
+    .platform-badge { display: none; }
+    .logo-bracket { display: none; }
+    #app-root { padding: 2rem 1.25rem 3.5rem; }
+    .ambient-orb { opacity: 0.35; }
+}
+
+
+/* === keyframes usados por header/footer/login === */
+@keyframes orbDrift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -15px); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes viewEnter {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes viewEnterStagger {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes authOrbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(12px, -18px) scale(1.05); }
+    66% { transform: translate(-8px, 10px) scale(0.95); }
+}
+
+@keyframes authGlowPulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+@keyframes authShimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+@keyframes authArrowNudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+}
+
+
+/* === animations.css (login) === */
+.fade-in {
+    animation: viewEnter 0.5s var(--ease-premium) both;
+}
+
+.stagger-children > * {
+    animation: viewEnterStagger 0.45s var(--ease-premium) both;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.04s; }
+
+.stagger-children > *:nth-child(2) { animation-delay: 0.08s; }
+
+.stagger-children > *:nth-child(3) { animation-delay: 0.12s; }
+
+.stagger-children > *:nth-child(4) { animation-delay: 0.16s; }
+
+.stagger-children > *:nth-child(5) { animation-delay: 0.2s; }
+
+.stagger-children > *:nth-child(6) { animation-delay: 0.24s; }
+
+@keyframes authOrbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(12px, -18px) scale(1.05); }
+    66% { transform: translate(-8px, 10px) scale(0.95); }
+}
+
+@keyframes authGlowPulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+@keyframes authShimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+@keyframes authArrowNudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.auth-orb { animation: none !important; }
+
+.auth-card-glow { animation: none !important; }
+
+.role-orb { animation: none !important; }
+
+.role-card-glow { animation: none !important; }
+}
+
+/* === components.css (login/oauth/roles) === */
+.btn-register-action {
+    background: var(--gradient-brand);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-glow-green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-register-action:hover:not(:disabled) {
+    filter: brightness(1.05);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.btn-register-action:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-login-action {
+    background: var(--bg-white);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    padding: 0.78rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 0.9rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-login-action:hover {
+    border-color: color-mix(in srgb, var(--color-blue-500) 35%, var(--border-default));
+    background: var(--color-blue-50);
+}
+
+.btn-full { width: 100%; }
+
+.hero-tag,
+.floating-badge,
+.section-eyebrow,
+.auth-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.card-premium-luxury,
+.card-luxury {
+    background: color-mix(in srgb, var(--color-white) 92%, var(--color-green-50));
+    border-radius: var(--radius-xl);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-accent);
+    transition: var(--transition-fast);
+}
+
+.card-premium-luxury:hover,
+.card-luxury:hover {
+    border-color: var(--border-default);
+    box-shadow: var(--shadow-md);
+}
+
+.oauth-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.btn-oauth {
+    position: relative;
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 50px;
+    padding: 0.7rem 1rem;
+    background: color-mix(in srgb, var(--bg-white) 88%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 80%, transparent);
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.86rem;
+    line-height: 1;
+    font-family: inherit;
+    color: var(--text-primary);
+    transition: transform 0.25s var(--ease-premium), box-shadow 0.25s var(--ease-premium), border-color 0.2s, background 0.2s;
+    overflow: hidden;
+    text-align: left;
+}
+
+.btn-oauth::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, color-mix(in srgb, white 70%, transparent) 50%, transparent 60%);
+    transform: translateX(-120%);
+    transition: transform 0.55s var(--ease-premium);
+    pointer-events: none;
+}
+
+.btn-oauth:hover::before {
+    transform: translateX(120%);
+}
+
+.btn-oauth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px color-mix(in srgb, var(--color-gray-900) 8%, transparent);
+}
+
+.btn-oauth--gmail:hover {
+    border-color: color-mix(in srgb, #ea4335 35%, var(--border-default));
+    background: color-mix(in srgb, #fce8e6 40%, white);
+}
+
+.btn-oauth--outlook:hover {
+    border-color: color-mix(in srgb, #0078d4 35%, var(--border-default));
+    background: color-mix(in srgb, #e8f4fc 45%, white);
+}
+
+.btn-oauth--github:hover {
+    border-color: color-mix(in srgb, #24292f 25%, var(--border-default));
+    background: color-mix(in srgb, #f0f0f0 60%, white);
+}
+
+.btn-oauth-label {
+    justify-self: start;
+}
+
+.btn-oauth-arrow {
+    font-size: 1rem;
+    color: var(--text-subtle);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.2s, transform 0.25s var(--ease-premium);
+}
+
+.btn-oauth:hover .btn-oauth-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.oauth-icon-slot {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+.oauth-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+}
+
+.auth-shell .btn-oauth {
+    background: var(--auth-surface-input);
+    border: 1px solid var(--auth-border);
+    color: color-mix(in srgb, var(--color-gray-700) 88%, var(--color-green-600));
+    box-shadow: 0 1px 2px color-mix(in srgb, var(--color-green-100) 30%, transparent);
+}
+
+.auth-shell .btn-oauth:hover {
+    box-shadow: 0 8px 22px color-mix(in srgb, var(--color-green-200) 35%, transparent);
+}
+
+.auth-shell .btn-oauth--gmail:hover {
+    border-color: color-mix(in srgb, #ee8d8d 40%, var(--auth-border));
+    background: color-mix(in srgb, var(--color-red-50) 70%, white);
+}
+
+.auth-shell .btn-oauth--outlook:hover {
+    border-color: color-mix(in srgb, var(--color-blue-200) 55%, var(--auth-border));
+    background: color-mix(in srgb, var(--color-blue-50) 75%, white);
+}
+
+.auth-shell .btn-oauth--github:hover {
+    border-color: color-mix(in srgb, var(--color-gray-300) 60%, var(--auth-border));
+    background: color-mix(in srgb, var(--color-gray-50) 85%, white);
+}
+
+.auth-shell .btn-oauth-arrow {
+    color: var(--auth-text-soft);
+}
+
+.input-field {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    outline: none;
+    transition: var(--transition-fast);
+    font-family: inherit;
+    background: var(--bg-white);
+    color: var(--text-primary);
+}
+
+.input-field:focus {
+    border-color: var(--color-green-500);
+    box-shadow: 0 0 0 3px color-mix(in lab, var(--color-green-500) 12%, transparent);
+}
+
+.form-error {
+    color: var(--color-orange-600);
+    font-size: 0.84rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.auth-divider {
+    position: relative;
+    text-align: center;
+    margin: 1.5rem 0 1.25rem;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--auth-border), transparent);
+}
+
+.auth-divider span {
+    position: relative;
+    background: var(--auth-surface);
+    padding: 0 1rem;
+    color: var(--auth-text-soft);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.auth-shell {
+    max-width: 480px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 1rem;
+}
+
+.auth-scene {
+    position: relative;
+    isolation: isolate;
+}
+
+.auth-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(48px);
+    pointer-events: none;
+    z-index: 0;
+    animation: authOrbFloat 9s ease-in-out infinite;
+}
+
+.auth-orb--a {
+    width: 140px;
+    height: 140px;
+    top: -30px;
+    left: -40px;
+    background: color-mix(in srgb, var(--color-green-200) 38%, transparent);
+}
+
+.auth-orb--b {
+    width: 120px;
+    height: 120px;
+    top: 20%;
+    right: -35px;
+    background: color-mix(in srgb, var(--color-yellow-100) 42%, transparent);
+    animation-delay: -3s;
+}
+
+.auth-orb--c {
+    width: 100px;
+    height: 100px;
+    bottom: 10%;
+    left: 10%;
+    background: color-mix(in srgb, var(--color-blue-100) 40%, transparent);
+    animation-delay: -5s;
+}
+
+.auth-card-frame {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-card-glow {
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius-xl) + 4px);
+    background: var(--gradient-auth-glow);
+    background-size: 300% 300%;
+    animation: gradientShift 8s ease infinite;
+    opacity: 0.42;
+    filter: blur(1px);
+    z-index: 0;
+}
+
+.auth-card {
+    position: relative;
+    z-index: 1;
+    padding: 2rem 1.75rem 1.85rem !important;
+    background: color-mix(in srgb, var(--auth-surface) 88%, transparent) !important;
+    backdrop-filter: blur(24px) saturate(1.25);
+    -webkit-backdrop-filter: blur(24px) saturate(1.25);
+    border: 1px solid var(--auth-border) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow:
+        0 2px 4px color-mix(in srgb, var(--color-gray-900) 3%, transparent),
+        var(--shadow-auth),
+        inset 0 1px 0 color-mix(in srgb, white 90%, transparent) !important;
+    transition: opacity 0.3s, transform 0.3s var(--ease-premium);
+}
+
+.auth-card--loading {
+    opacity: 0.92;
+    pointer-events: none;
+}
+
+.auth-card-header {
+    text-align: center;
+    margin-bottom: 1.35rem;
+}
+
+.auth-pill {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-green-600);
+    background: var(--gradient-warm);
+    border: 1px solid var(--auth-border);
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-xs);
+}
+
+.auth-card h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+    background: var(--gradient-auth-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: var(--auth-text-soft);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 32ch;
+    margin-inline: auto;
+}
+
+.auth-oauth-hint {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--auth-text-soft);
+    margin: 0.75rem 0 0;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.auth-switch {
+    margin: 1.1rem 0 0;
+    text-align: center;
+    font-size: 0.84rem;
+    color: var(--auth-text-soft);
+}
+
+.auth-switch-link {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 0.35rem;
+    font: inherit;
+    font-weight: 700;
+    color: var(--role-cta-green);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.auth-switch-link:hover {
+    color: var(--color-green-700);
+}
+
+.auth-field {
+    margin-bottom: 1rem;
+}
+
+.auth-field label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--auth-text-label);
+    margin-bottom: 0.45rem;
+}
+
+.auth-input-wrap {
+    position: relative;
+    border-radius: 12px;
+    background: var(--auth-surface-input);
+    border: 1px solid var(--auth-border);
+    transition: border-color 0.2s, box-shadow 0.25s var(--ease-premium), transform 0.2s;
+}
+
+.auth-input-wrap:focus-within {
+    border-color: var(--auth-border-focus);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-green-200) 55%, transparent);
+    transform: translateY(-1px);
+}
+
+.auth-input-wrap .auth-input,
+.auth-input-wrap .input-field {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0.85rem 1rem;
+    width: 100%;
+    font-size: 0.92rem;
+    border-radius: 12px;
+}
+
+.auth-input-wrap .auth-input:focus,
+.auth-input-wrap .input-field:focus {
+    outline: none;
+}
+
+.auth-submit {
+    margin-top: 0.5rem;
+    min-height: 50px;
+    border-radius: 14px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-submit:not(.auth-submit--login) {
+    background: var(--gradient-auth-cta) !important;
+    box-shadow: var(--shadow-auth-glow) !important;
+}
+
+.auth-submit:not(.auth-submit--login):hover:not(:disabled) {
+    filter: brightness(1.04);
+    box-shadow: 0 6px 22px color-mix(in srgb, var(--color-green-300) 28%, transparent) !important;
+}
+
+.auth-submit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 30%, color-mix(in srgb, white 35%, transparent) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: authShimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.auth-submit-icon {
+    display: inline-flex;
+    font-size: 1.15rem;
+    transition: transform 0.25s var(--ease-premium);
+}
+
+.auth-submit:hover .auth-submit-icon {
+    animation: authArrowNudge 0.8s ease-in-out infinite;
+}
+
+.auth-submit--login {
+    background: var(--auth-surface-input) !important;
+    color: var(--color-green-600) !important;
+    border: 1.5px solid var(--auth-border-focus) !important;
+    box-shadow: none !important;
+}
+
+.auth-submit--login::after {
+    display: none;
+}
+
+.auth-submit--login:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-green-50) 80%, white) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-auth-glow) !important;
+}
+
+@media (max-width: 640px) {
+.auth-shell { margin-top: 1rem; }
+
+.auth-card {
+        padding: 1.5rem 1.2rem 1.35rem !important;
+    }
+
+.auth-orb { opacity: 0.75; filter: blur(40px); }
+
+.btn-oauth { min-height: 48px; font-size: 0.84rem; }
+}
+
+.role-shell {
+    max-width: 820px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 1.25rem;
+    text-align: center;
+}
+
+.role-scene {
+    position: relative;
+    isolation: isolate;
+}
+
+.role-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(52px);
+    pointer-events: none;
+    z-index: 0;
+    animation: authOrbFloat 10s ease-in-out infinite;
+}
+
+.role-orb--a {
+    width: 180px;
+    height: 180px;
+    top: -40px;
+    left: 5%;
+    background: color-mix(in srgb, var(--color-green-100) 38%, transparent);
+}
+
+.role-orb--b {
+    width: 150px;
+    height: 150px;
+    top: 35%;
+    right: -20px;
+    background: color-mix(in srgb, var(--color-yellow-50) 45%, transparent);
+    animation-delay: -3.5s;
+}
+
+.role-orb--c {
+    width: 130px;
+    height: 130px;
+    bottom: 5%;
+    left: 25%;
+    background: color-mix(in srgb, var(--color-purple-50) 42%, transparent);
+    animation-delay: -6s;
+}
+
+.role-header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.role-header h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.65rem, 4.5vw, 2rem);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 0.55rem;
+    background: var(--gradient-auth-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.role-sub {
+    margin-bottom: 0 !important;
+    max-width: 42ch;
+}
+
+.role-stage {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.role-card {
+    position: relative;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    border-radius: calc(var(--radius-xl) + 2px);
+    transition: transform 0.35s var(--ease-premium);
+}
+
+.role-card:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-green-200) 65%, transparent);
+    outline-offset: 4px;
+}
+
+.role-card-glow {
+    position: absolute;
+    inset: -2px;
+    border-radius: calc(var(--radius-xl) + 4px);
+    opacity: 0.28;
+    filter: blur(0.5px);
+    background-size: 220% 220%;
+    animation: gradientShift 7s ease infinite;
+    transition: opacity 0.35s var(--ease-premium);
+    z-index: 0;
+}
+
+.role-card--apprentice .role-card-glow {
+    background: var(--gradient-role-apprentice);
+}
+
+.role-card--instructor .role-card-glow {
+    background: var(--gradient-role-instructor);
+}
+
+.role-card:hover .role-card-glow,
+.role-card:focus-visible .role-card-glow {
+    opacity: 0.48;
+}
+
+.role-card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 300px;
+    height: 100%;
+    padding: 1.65rem 1.45rem 1.45rem;
+    background: color-mix(in srgb, var(--auth-surface) 94%, transparent);
+    backdrop-filter: blur(24px) saturate(1.15);
+    -webkit-backdrop-filter: blur(24px) saturate(1.15);
+    border: 1px solid var(--auth-border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-auth);
+    transition: transform 0.35s var(--ease-premium), box-shadow 0.35s var(--ease-premium), border-color 0.25s;
+    overflow: hidden;
+}
+
+.role-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    opacity: 0.7;
+    transition: height 0.3s var(--ease-premium), opacity 0.3s;
+}
+
+.role-card--apprentice .role-card-inner::before {
+    background: linear-gradient(90deg, var(--color-green-100), var(--color-green-200), var(--color-blue-50));
+}
+
+.role-card--instructor .role-card-inner::before {
+    background: linear-gradient(90deg, var(--color-yellow-100), var(--color-yellow-200), var(--color-red-50));
+}
+
+.role-card:hover .role-card-inner {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 34px color-mix(in srgb, var(--color-green-100) 55%, transparent);
+    border-color: color-mix(in srgb, var(--auth-border-focus) 45%, var(--auth-border));
+}
+
+.role-card--instructor:hover .role-card-inner {
+    box-shadow: 0 12px 34px color-mix(in srgb, var(--color-yellow-100) 60%, transparent);
+}
+
+.role-card:hover .role-card-inner::before {
+    height: 3px;
+    opacity: 0.9;
+}
+
+.role-memoji-wrap {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    transition: transform 0.45s var(--ease-premium);
+}
+
+.role-memoji-glow {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--color-green-100) 70%, transparent) 0%, transparent 72%);
+    z-index: 0;
+    transition: transform 0.35s var(--ease-premium), opacity 0.35s var(--ease-premium);
+}
+
+.role-card--instructor .role-memoji-glow {
+    background: radial-gradient(circle, color-mix(in srgb, var(--color-yellow-100) 75%, transparent) 0%, transparent 72%);
+}
+
+.role-memoji {
+    position: relative;
+    z-index: 1;
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid color-mix(in srgb, white 80%, var(--auth-border));
+    box-shadow:
+        0 4px 14px color-mix(in srgb, var(--color-green-100) 50%, transparent),
+        inset 0 1px 0 color-mix(in srgb, white 70%, transparent);
+    background: color-mix(in srgb, white 95%, var(--color-green-50));
+}
+
+.role-card--instructor .role-memoji {
+    box-shadow:
+        0 4px 14px color-mix(in srgb, var(--color-yellow-100) 55%, transparent),
+        inset 0 1px 0 color-mix(in srgb, white 70%, transparent);
+    background: color-mix(in srgb, white 95%, var(--color-yellow-50));
+}
+
+.role-card:hover .role-memoji-wrap {
+    transform: scale(1.05) translateY(-2px);
+}
+
+.role-card--apprentice:hover .role-memoji-wrap {
+    transform: scale(1.05) translateY(-2px) rotate(-2deg);
+}
+
+.role-card--instructor:hover .role-memoji-wrap {
+    transform: scale(1.05) translateY(-2px) rotate(2deg);
+}
+
+.role-card:hover .role-memoji-glow {
+    transform: scale(1.08);
+    opacity: 1;
+}
+
+.role-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--role-cta-green);
+    background: color-mix(in srgb, var(--color-green-50) 90%, white);
+    border: 1px solid color-mix(in srgb, var(--color-green-100) 80%, transparent);
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: 0.65rem;
+}
+
+.role-tag--warm {
+    color: var(--role-cta-warm);
+    background: color-mix(in srgb, var(--color-yellow-50) 90%, white);
+    border-color: color-mix(in srgb, var(--color-yellow-100) 80%, transparent);
+}
+
+.role-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    color: var(--role-text-title);
+}
+
+.role-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--auth-text-soft);
+    margin: 0;
+    flex: 1;
+}
+
+.role-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--role-cta-green);
+    transition: gap 0.25s var(--ease-premium);
+}
+
+.role-cta--warm {
+    color: var(--role-cta-warm);
+}
+
+.role-cta-arrow {
+    display: inline-flex;
+    transition: transform 0.25s var(--ease-premium);
+}
+
+.role-card:hover .role-cta {
+    gap: 0.65rem;
+}
+
+.role-card:hover .role-cta-arrow {
+    transform: translateX(3px);
+    animation: authArrowNudge 0.8s ease-in-out infinite;
+}
+
+@media (max-width: 720px) {
+.role-stage {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-inline: auto;
+    }
+
+.role-card-inner {
+        min-height: 260px;
+    }
+}
+
+@media (max-width: 640px) {
+.role-shell { margin-top: 1rem; padding: 0 1rem; }
+
+.role-orb { opacity: 0.7; }
+
+.role-header { margin-bottom: 1.5rem; }
+}
+
+.auth-feedback {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    margin: 0 0 1rem;
+    line-height: 1.5;
+}
+
+.auth-feedback--success {
+    background: var(--color-green-50);
+    color: var(--color-green-800);
+    border: 1px solid var(--border-accent);
+}
+
+.auth-feedback--warn {
+    background: var(--color-yellow-50);
+    color: var(--color-yellow-800);
+    border: 1px solid var(--color-yellow-200);
+}
+
+.auth-feedback--error {
+    background: var(--color-red-50);
+    color: var(--color-red-700);
+    border: 1px solid var(--color-red-200);
+}
+
+.auth-feedback a {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.role-email-notice {
+    max-width: 480px;
+    margin: 0 auto 1rem;
+}
