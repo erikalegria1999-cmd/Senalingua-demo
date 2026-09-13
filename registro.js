@@ -18,5 +18,5 @@ const guardar = () => {
     localStorage.setItem('empleados', JSON.stringify(empleados));
 
     alert('Empleado guardado correctamente');
-    window.location.href = 'inicio.html';
+    window.location.href = 'inicioSesion.html';
 };
