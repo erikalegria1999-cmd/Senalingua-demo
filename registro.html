@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENALingua — Sign In</title>
+    <title>SENALingua — Register</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,11 +24,11 @@
 
     <main class="main-wrapper">
         <div class="card-container">
-            <div class="tag-pill">+ SENALINGUA</div>
-            <h1 class="card-title">Sign in to your account</h1>
-            <p class="card-subtitle">The system will recognise whether you are registered as an apprentice or instructor.</p>
+            <div class="tag-pill">+ ADSO - TECHNICAL ENGLISH</div>
+            <h1 class="card-title">Create your account</h1>
+            <p class="card-subtitle">Register with your institutional email address to start learning.</p>
 
-            <div class="form-layout">
+            <form action="inicio.html" class="form-layout" onsubmit="return false;">
                 <div class="input-group">
                     <label for="email">EMAIL ADDRESS</label>
                     <input type="email" id="email" placeholder="Usuario@sena.edu.co">
@@ -39,20 +39,16 @@
                     <input type="password" id="password" placeholder="••••••••••••">
                 </div>
 
-                <div class="forgot-wrapper">
-                    <a href="#" class="forgot-link">Forgot your password?</a>
-                </div>
-
-                <button type="button" class="btn-green-outline" onclick="inicioSesion()">Sign in</button>
-            </div>
+                <button type="button" class="btn-green-solid" onclick="guardar()">Continue</button>
+            </form>
 
             <div class="card-footer-text">
-                <span>Don't have an account?</span>
-                <a href="registro.html">Create one here</a>
+                <span>Already have an account?</span>
+                <a href="inicioSesion.html">Sign in here</a>
             </div>
         </div>
     </main>
 
-    <script src="inicioSesion.js"></script>
+    <script src="registro.js"></script>
 </body>
 </html>
