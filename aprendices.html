@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendices · SENALingua</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="encabezado">
+        <div class="encabezado-caja">
+            <div class="encabezado-izq">
+                <button type="button" class="boton gris" onclick="irPanelInstructor()">Back</button>
+                <a class="logo" href="index.html">SENA<span>Lingua</span></a>
+            </div>
+            <span class="badge">Instructor · ADSO</span>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div id="sinAula" class="tarjeta oculto">
+            <p>Classroom not found.</p>
+            <button type="button" class="boton verde" onclick="irPanelInstructor()">Back to Dashboard</button>
+        </div>
+
+        <div id="detalleAula">
+            <div class="tarjeta fila-entre">
+                <div>
+                    <p><span class="badge" id="pillFicha">Apprentices</span></p>
+                    <h1 class="titulo" id="tituloPrograma">Programme</h1>
+                    <p><span class="codigo" id="codigoAula"></span> · <span id="conteo"></span></p>
+                </div>
+                <button type="button" class="estado" id="btnEstado" onclick="cambiarEstado()">Active</button>
+            </div>
+
+            <div class="tarjeta">
+                <h2>Classroom dates</h2>
+                <p>Date: <span id="fechaAula"></span></p>
+                <label for="nuevaFecha">New date</label>
+                <div class="fila-form">
+                    <input type="text" id="nuevaFecha" placeholder="10/2/2026">
+                    <button type="button" class="boton verde" onclick="guardarFecha()">Save date</button>
+                </div>
+                <p id="msgFecha" class="ok oculto">Date updated.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h2>Enrolled Apprentices</h2>
+                <div class="tabla-caja">
+                    <table class="tabla">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Level</th>
+                                <th>Streak</th>
+                                <th>Points</th>
+                                <th>Activity</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpoAprendices"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="pie">© 2026 SENALingua · Software Analysis and Development</p>
+
+    <script src="js/datos.js"></script>
+    <script src="js/aprendices.js"></script>
+</body>
+</html>
