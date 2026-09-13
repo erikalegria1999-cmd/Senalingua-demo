@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor · SENALingua</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="encabezado">
+        <div class="encabezado-caja">
+            <div class="encabezado-izq">
+                <button type="button" class="boton gris" onclick="irInicio()">Back</button>
+                <a class="logo" href="index.html">SENA<span>Lingua</span></a>
+            </div>
+            <span class="badge">Instructor · ADSO</span>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div class="tarjeta fila-entre">
+            <div>
+                <span class="badge">Instructor · ADSO</span>
+                <h1 class="titulo">Instructor Dashboard</h1>
+                <p class="muted">Hello, <span id="nombreInstructor"></span>. Manage classrooms and apprentices.</p>
+            </div>
+            <button type="button" class="boton verde" onclick="abrirModal()">Create Classroom</button>
+        </div>
+
+        <div class="kpis">
+            <div class="kpi">
+                <h2 id="kpiAulas">0</h2>
+                <p>Classrooms</p>
+            </div>
+            <div class="kpi">
+                <h2 id="kpiAprendices">0</h2>
+                <p>Apprentices</p>
+            </div>
+            <div class="kpi">
+                <h2 id="kpiPromedio">0</h2>
+                <p>Avg. per class</p>
+            </div>
+        </div>
+
+        <div class="tarjeta">
+            <div class="tabla-caja">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Programme</th>
+                            <th>Ficha</th>
+                            <th>Code</th>
+                            <th>Learners</th>
+                            <th>Date</th>
+                            <th>State</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpoAulas"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="fondo-modal oculto">
+        <div class="tarjeta caja-modal">
+            <h3>Create New Classroom</h3>
+            <p class="muted">Enter the ficha number. The system will generate an access code.</p>
+            <label for="nuevaFicha">Ficha number</label>
+            <input type="text" id="nuevaFicha" placeholder="3312932">
+            <label for="nuevoPrograma">Programme</label>
+            <input type="text" id="nuevoPrograma" value="Análisis y Desarrollo de Software (ADSO)">
+            <p id="errorCrear" class="error oculto"></p>
+            <div class="fila-botones">
+                <button type="button" class="boton gris" onclick="cerrarModal()">Cancel</button>
+                <button type="button" class="boton verde" onclick="crearAula()">Create Classroom</button>
+            </div>
+        </div>
+    </div>
+
+    <p class="pie">© 2026 SENALingua · Software Analysis and Development</p>
+
+    <script src="js/datos.js"></script>
+    <script src="js/instructor.js"></script>
+</body>
+</html>

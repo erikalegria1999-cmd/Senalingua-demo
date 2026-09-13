@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENALingua</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="encabezado">
+        <div class="encabezado-caja">
+            <div class="encabezado-izq">
+                <a class="logo" href="index.html">SENA<span>Lingua</span></a>
+            </div>
+            <span class="badge">ADSO · Technical English</span>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div class="centrado">
+            <span class="badge">Choose your path</span>
+            <h1 class="titulo">How will you use SENALingua?</h1>
+            <p class="muted">Select your role to open the instructor panel or the apprentice hub.</p>
+        </div>
+
+        <div class="roles">
+            <button type="button" class="tarjeta rol" onclick="irAprendiz()">
+                <div class="marco-foto">
+                    <img src="assets/apprentice.png" alt="Aprendiz">
+                </div>
+                <span class="badge">Learn</span>
+                <h2>Software Apprentice</h2>
+                <p class="muted">Join a classroom and complete technical English lessons.</p>
+            </button>
+
+            <button type="button" class="tarjeta rol" onclick="irInstructor()">
+                <div class="marco-foto">
+                    <img src="assets/instructor.png" alt="Instructor">
+                </div>
+                <span class="badge">Instructor</span>
+                <h2>Instructor</h2>
+                <p class="muted">Manage classrooms and monitor apprentice progress.</p>
+            </button>
+        </div>
+    </div>
+
+    <p class="pie">© 2026 SENALingua · Software Analysis and Development</p>
+
+    <script src="js/datos.js"></script>
+    <script src="js/inicio.js"></script>
+</body>
+</html>

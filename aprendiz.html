@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendiz · SENALingua</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="encabezado">
+        <div class="encabezado-caja">
+            <div class="encabezado-izq">
+                <button type="button" class="boton gris" onclick="irInicio()">Back</button>
+                <a class="logo" href="index.html">SENA<span>Lingua</span></a>
+            </div>
+            <span class="badge">Aprendiz · ADSO</span>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div class="tarjeta fila-perfil">
+            <div class="perfil-izq">
+                <span class="avatar" id="avatar">KN</span>
+                <div class="perfil-texto">
+                    <strong id="nombreChip">Aprendiz</strong>
+                    <span class="muted" id="nivelChip">CEFR A1</span>
+                </div>
+            </div>
+            <div class="acciones">
+                <button type="button" class="boton blanco" onclick="abrirPerfil()">My profile</button>
+                <button type="button" class="boton gris" onclick="cerrarSesion()">Log out</button>
+            </div>
+        </div>
+
+        <div class="tarjeta hero">
+            <div>
+                <span class="badge">ADSO · A1</span>
+                <h1 class="titulo" id="bienvenida">Welcome</h1>
+                <p class="muted">Your personalised technical English learning pathway</p>
+            </div>
+            <div class="caja-progreso">
+                <h2 id="porcentaje">0%</h2>
+                <div class="barra">
+                    <div class="relleno" id="rellenoProgreso"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <h2 id="statRacha">1</h2>
+                <p>Study Streak</p>
+            </div>
+            <div class="stat">
+                <h2 id="statPuntos">0</h2>
+                <p>Learning Points</p>
+            </div>
+            <div class="stat">
+                <h2 id="statRango">—</h2>
+                <p>Classroom Rank</p>
+            </div>
+            <div class="stat">
+                <h2 id="statProgreso">0%</h2>
+                <p>Route Progress</p>
+            </div>
+        </div>
+
+        <div id="cajaUnir" class="tarjeta">
+            <h2>Classroom Enrolment</h2>
+            <p class="muted">Enter your instructor's access code (e.g. ADSO331).</p>
+            <div class="fila-form">
+                <input type="text" id="codigoAula" placeholder="ADSO331">
+                <button type="button" class="boton verde" onclick="unirse()">Join Classroom</button>
+            </div>
+            <p id="errorUnir" class="error oculto"></p>
+        </div>
+
+        <div id="cajaAula" class="tarjeta oculto">
+            <p>Enrolled with code <strong id="codigoInscrito"></strong></p>
+            <p>Date: <strong id="fechaAula"></strong></p>
+            <p>State: <span id="estadoAula" class="estado">Active</span></p>
+        </div>
+
+        <h2>Learning Modules · A1</h2>
+        <div class="modulos" id="listaModulos"></div>
+    </div>
+
+    <div id="fondoPerfil" class="fondo-modal oculto">
+        <div class="tarjeta caja-modal">
+            <h2>Your Profile</h2>
+            <p class="muted">Manage your personal information.</p>
+            <label for="perfilNombre">Full name</label>
+            <input type="text" id="perfilNombre">
+            <label for="perfilEmail">Institutional email</label>
+            <input type="email" id="perfilEmail">
+            <p class="muted">CEFR A1 · Software Apprentice</p>
+            <p id="msgGuardado" class="ok oculto">Profile updated successfully.</p>
+            <div class="fila-botones">
+                <button type="button" class="boton gris" onclick="cerrarPerfil()">Cancel</button>
+                <button type="button" class="boton verde" onclick="guardarPerfil()">Save changes</button>
+            </div>
+        </div>
+    </div>
+
+    <p class="pie">© 2026 SENALingua · Software Analysis and Development</p>
+
+    <script src="js/datos.js"></script>
+    <script src="js/aprendiz.js"></script>
+</body>
+</html>
