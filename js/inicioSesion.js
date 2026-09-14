@@ -1,46 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const formLogin = document.getElementById("form-login") || document.querySelector("form");
+    const formLogin = document.getElementById("form-login");
 
     if (formLogin) {
         formLogin.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correoInput = document.getElementById("email") || document.getElementById("correo");
-            const claveInput = document.getElementById("password") || document.getElementById("clave");
+            const emailInput = document.getElementById("email");
+            const passwordInput = document.getElementById("password");
 
-            if (!correoInput || !claveInput) {
-                alert("Error: no se encontraron los campos del formulario.");
-                return;
-            }
+            const correo = emailInput.value.trim().toLowerCase();
+            const clave = passwordInput.value.trim();
 
-            const correo = correoInput.value.trim();
-            const clave = claveInput.value.trim();
-
-            if (!correo || !clave) {
-                alert("Por favor ingrese correo y contraseña.");
-                return;
-            }
-
-            // Cargar lista de usuarios desde localStorage
             const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-            // Buscar coincidencia exacta
-            const usuarioValido = usuarios.find(u => u.correo.toLowerCase() === correo.toLowerCase() && u.clave === clave);
+            const usuarioEncontrado = usuarios.find(
+                u => u.correo.toLowerCase() === correo && u.clave === clave
+            );
 
-            if (usuarioValido) {
-                // Guardar la sesión activa para el resto del sistema
-                localStorage.setItem("usuario", JSON.stringify(usuarioValido));
-
-                alert(`¡Bienvenido de nuevo, ${usuarioValido.nombre}!`);
-
-                // Redireccionar según el rol registrado
-                if (usuarioValido.rol === "instructor") {
-                    window.location.href = "instructor.html";
-                } else {
-                    window.location.href = "aprendiz.html";
-                }
-            } else {
+            if (!usuarioEncontrado) {
                 alert("Correo o contraseña incorrectos.");
+                return;
+            }
+
+            // Asegurar que tenga la propiedad foto_perfil asignada
+            if (!usuarioEncontrado.foto_perfil) {
+                usuarioEncontrado.foto_perfil = usuarioEncontrado.rol === "instructor" ? "img/instructor.png" : "img/aprendiz.png";
+            }
+
+            // Guardar usuario activo en sesión
+            localStorage.setItem("usuario", JSON.stringify(usuarioEncontrado));
+
+            // Redirección según rol
+            if (usuarioEncontrado.rol === "instructor") {
+                window.location.href = "instructor.html";
+            } else {
+                window.location.href = "aprendiz.html";
             }
         });
     }

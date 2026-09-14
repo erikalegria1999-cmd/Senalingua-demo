@@ -1,45 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const formRegistro = document.getElementById("form-registro") || document.querySelector("form");
+    const formRegistro = document.getElementById("form-registro");
 
     if (formRegistro) {
         formRegistro.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const nombre = document.getElementById("nombre")?.value.trim() || "Usuario SENA";
-            const correo = document.getElementById("correo")?.value.trim();
-            const clave = document.getElementById("clave")?.value || document.getElementById("password")?.value;
-            const rolSelect = document.getElementById("rol")?.value || "aprendiz";
+            const nombreInput = document.getElementById("nombre");
+            const correoInput = document.getElementById("correo");
+            const claveInput = document.getElementById("clave");
+            const rolInput = document.getElementById("rol");
 
-            if (!correo || !clave) {
-                alert("Por favor completa los campos de correo y contraseña.");
+            const nombre = nombreInput.value.trim();
+            const correo = correoInput.value.trim().toLowerCase();
+            const clave = claveInput.value.trim();
+            const rol = rolInput.value;
+
+            const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+            const existe = usuarios.some(u => u.correo.toLowerCase() === correo);
+            if (existe) {
+                alert("Este correo electrónico ya está registrado.");
                 return;
             }
 
-            // Obtener usuarios existentes
-            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+            // Asignación de foto según el rol
+            const fotoPerfil = rol === "instructor" ? "img/instructor.png" : "img/aprendiz.png";
 
-            // Verificar si ya existe
-            const usuarioExiste = usuarios.some(u => u.correo === correo);
-            if (usuarioExiste) {
-                alert("Este correo ya se encuentra registrado.");
-                return;
-            }
-
-            // Crear el nuevo usuario con el esquema unificado
             const nuevoUsuario = {
                 nombre: nombre,
                 correo: correo,
                 clave: clave,
-                rol: rolSelect,
-                puntos: 0,
+                rol: rol,
+                foto_perfil: fotoPerfil,
                 racha: 1,
-                codigo: "SENA-" + Math.floor(1000 + Math.random() * 9000)
+                puntos: 0
             };
 
             usuarios.push(nuevoUsuario);
             localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-            alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
+            alert("¡Cuenta creada exitosamente!");
             window.location.href = "inicioSesion.html";
         });
     }
