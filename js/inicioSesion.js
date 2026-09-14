@@ -1,100 +1,47 @@
-// ----- Funciones para guardar y leer usuarios en localStorage -----
+document.addEventListener("DOMContentLoaded", () => {
+    const formLogin = document.getElementById("form-login") || document.querySelector("form");
 
-function obtenerUsuarios() {
-    let datos = localStorage.getItem("usuarios");
+    if (formLogin) {
+        formLogin.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-    if (datos == null) {
-        return [];
-    } else {
-        return JSON.parse(datos);
+            const correoInput = document.getElementById("email") || document.getElementById("correo");
+            const claveInput = document.getElementById("password") || document.getElementById("clave");
+
+            if (!correoInput || !claveInput) {
+                alert("Error: no se encontraron los campos del formulario.");
+                return;
+            }
+
+            const correo = correoInput.value.trim();
+            const clave = claveInput.value.trim();
+
+            if (!correo || !clave) {
+                alert("Por favor ingrese correo y contraseña.");
+                return;
+            }
+
+            // Cargar lista de usuarios desde localStorage
+            const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+            // Buscar coincidencia exacta
+            const usuarioValido = usuarios.find(u => u.correo.toLowerCase() === correo.toLowerCase() && u.clave === clave);
+
+            if (usuarioValido) {
+                // Guardar la sesión activa para el resto del sistema
+                localStorage.setItem("usuario", JSON.stringify(usuarioValido));
+
+                alert(`¡Bienvenido de nuevo, ${usuarioValido.nombre}!`);
+
+                // Redireccionar según el rol registrado
+                if (usuarioValido.rol === "instructor") {
+                    window.location.href = "instructor.html";
+                } else {
+                    window.location.href = "aprendiz.html";
+                }
+            } else {
+                alert("Correo o contraseña incorrectos.");
+            }
+        });
     }
-}
-
-function guardarUsuarios(usuarios) {
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-}
-
-// ----- Registro -----
-
-function registrar() {
-    let correo = document.getElementById("registro-email").value;
-    let clave = document.getElementById("registro-password").value;
-    let mensaje = document.getElementById("mensaje-registro");
-
-    if (correo == "" || clave == "") {
-        mensaje.textContent = "Completa todos los campos.";
-        mensaje.style.color = "red";
-        return;
-    }
-
-    let usuarios = obtenerUsuarios();
-    let existe = false;
-
-    for (let i = 0; i < usuarios.length; i = i + 1) {
-        if (usuarios[i].correo == correo) {
-            existe = true;
-        }
-    }
-
-    if (existe) {
-        mensaje.textContent = "Ese correo ya está registrado.";
-        mensaje.style.color = "red";
-    } else {
-        let nuevoUsuario = {
-            correo: correo,
-            clave: clave
-        };
-
-        usuarios.push(nuevoUsuario);
-        guardarUsuarios(usuarios);
-
-        mensaje.textContent = "Cuenta creada con éxito.";
-        mensaje.style.color = "green";
-        document.getElementById("form-registro").reset();
-    }
-}
-
-// ----- Inicio de sesión -----
-
-function iniciarSesion() {
-    let correo = document.getElementById("login-email").value;
-    let clave = document.getElementById("login-password").value;
-    let mensaje = document.getElementById("mensaje-login");
-
-    if (correo == "" || clave == "") {
-        mensaje.textContent = "Ingresa tu correo y contraseña.";
-        mensaje.style.color = "red";
-        return;
-    }
-
-    let usuarios = obtenerUsuarios();
-    let encontrado = null;
-
-    for (let i = 0; i < usuarios.length; i = i + 1) {
-        if (usuarios[i].correo == correo && usuarios[i].clave == clave) {
-            encontrado = usuarios[i];
-        }
-    }
-
-    if (encontrado == null) {
-        mensaje.textContent = "Correo o contraseña incorrectos.";
-        mensaje.style.color = "red";
-    } else {
-        mensaje.textContent = "¡Bienvenido de nuevo!";
-        mensaje.style.color = "green";
-    }
-}
-
-// ----- Cambiar entre login y registro -----
-
-function cambiarFormulario() {
-    document.getElementById("login-view").classList.toggle("oculto");
-    document.getElementById("register-view").classList.toggle("oculto");
-}
-
-// ----- Eventos -----
-
-document.getElementById("btn-login").addEventListener("click", iniciarSesion);
-document.getElementById("btn-registro").addEventListener("click", registrar);
-document.getElementById("ir-registro").addEventListener("click", cambiarFormulario);
-document.getElementById("ir-login").addEventListener("click", cambiarFormulario);
+});

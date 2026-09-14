@@ -1,130 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENALingua — Sign In</title>
+    <title>SENALingua — Iniciar sesión</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ESTILOS CSS -->
     <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/inicioSesion.css">
 </head>
 <body>
-    <!-- NAVBAR -->
+
+    <!-- BARRA NAVEGACIÓN -->
     <header class="site-header">
         <nav class="navbar">
             <div class="navbar-container">
-                <!-- Logo -->
-                <a href="index.html" class="logo">
-                    SENA <span>Lingua</span>
-                </a>
-                <!-- Checkbox invisible para menú mobile responsivo (Sin JS) -->
-                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-                <label for="menu-toggle" class="mobile-menu-btn" aria-label="Abrir menú">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                <!-- Enlaces de navegación -->
+                <a href="index.html" class="logo">SENA<span> Lengua</span></a>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="practice.html">Practice</a></li>
-                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="index.html">Hogar</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Cursos</a></li>
+                    <li><a href="#">Práctica</a></li>
+                    <li><a href="#">Recursos</a></li>
                 </ul>
-                <!-- Botones de Acción -->
                 <div class="nav-buttons">
-                    <a href="inicioSesion.html" class="login-btn">Log In</a>
-                    <a href="registro.html" class="register-btn">Sign Up</a>
+                    <a href="inicioSesion.html" class="login-btn">Acceso</a>
+                    <a href="registro.html" class="register-btn">Inscribirse</a>
                 </div>
             </div>
         </nav>
     </header>
 
+    <!-- FORMULARIO DE INICIO DE SESIÓN -->
     <main class="main-wrapper">
         <div class="card-container">
-            <div class="tag-pill">+ SENALINGUA</div>
-            <h1 class="card-title">Sign in to your account</h1>
-            <p class="card-subtitle">The system will recognise whether you are registered as an apprentice or instructor.</p>
+            <span class="tag-pill">+ SENALINGUA</span>
+            <h1 class="card-title">Inicia sesión en tu cuenta.</h1>
+            <p class="card-subtitle">El sistema reconocerá si usted está registrado como aprendiz o instructor.</p>
 
-            <div class="form-layout">
+            <form id="form-login" class="form-layout">
                 <div class="input-group">
-                    <label for="email">EMAIL ADDRESS</label>
-                    <input type="email" id="email" placeholder="Usuario@sena.edu.co">
+                    <label for="email">DIRECCIÓN DE CORREO ELECTRÓNICO</label>
+                    <input type="email" id="email" placeholder="usuario@sena.edu.co" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="password">PASSWORD</label>
-                    <input type="password" id="password" placeholder="••••••••••••">
+                    <label for="password">CONTRASEÑA</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
                 </div>
 
                 <div class="forgot-wrapper">
-                    <a href="#" class="forgot-link">Forgot your password?</a>
+                    <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
                 </div>
 
-                <button type="button" class="btn-green-outline" onclick="inicioSesion()">Sign in</button>
-            </div>
+                <button type="submit" class="btn btn-primary btn-submit-login">Iniciar sesión</button>
+            </form>
 
             <div class="card-footer-text">
-                <span>Don't have an account?</span>
-                <a href="registro.html">Create one here</a>
+                <span>¿No tienes una cuenta?</span>
+                <a href="registro.html">Crea uno aquí</a>
             </div>
         </div>
     </main>
+
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-container">
-            <!-- Columna 1: Marca & Descripción -->
-            <div class="footer-col footer-brand">
-                <a href="index.html" class="logo">
-                    SENA <span>Lingua</span>
-                </a>
-                <p class="footer-description">
-                    Empower your language learning with the official interactive platform designed for the SENA community.
-                </p>
-            </div>
-            <!-- Columna 2: Navegación -->
-            <div class="footer-col">
-                <h4 class="footer-title">Navigation</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="practice.html">Practice</a></li>
-                </ul>
-            </div>
-            <!-- Columna 3: Recursos -->
-            <div class="footer-col">
-                <h4 class="footer-title">Resources</h4>
-                <ul class="footer-links">
-                    <li><a href="resources.html">Library</a></li>
-                    <li><a href="#">Study Guides</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Support</a></li>
-                </ul>
-            </div>
-            <!-- Columna 4: Comunidad & Redes -->
-            <div class="footer-col">
-                <h4 class="footer-title">Community</h4>
-                <p class="footer-info">Connect with fellow learners and practice daily.</p>
-                <div class="footer-socials">
-                    <a href="#" class="social-btn" translate="no" aria-label="Facebook">FB</a>
-                    <a href="#" class="social-btn" translate="no" aria-label="Instagram">IG</a>
-                    <a href="#" class="social-btn" translate="no" aria-label="X / Twitter">X</a>
-                </div>
-            </div>
-        </div>
-        <!-- Barra Inferior (Copyright & Legal) -->
         <div class="footer-bottom">
             <div class="footer-bottom-container">
-                <p>&copy; 2026 SENA Lingua. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Privacy Policy</a>
-                </div>
+                <p>&copy; 2026 SENA Lengua — Plataforma de Inglés Técnico.</p>
             </div>
         </div>
     </footer>
 
+    <!-- SCRIPT DE INICIO DE SESIÓN -->
     <script src="js/inicioSesion.js"></script>
 </body>
 </html>
