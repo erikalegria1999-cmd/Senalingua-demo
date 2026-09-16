@@ -18,7 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (!usuarioEncontrado) {
-                alert("Correo o contraseña incorrectos.");
+                Swal.fire({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success"
+});
                 return;
             }
 
