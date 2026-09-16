@@ -1,0 +1,130 @@
+
+/* 1. FOTO DE PERFIL (NAVBAR & BIENVENIDA) */
+.profile-photo-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--blanco);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--gris-borde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profile-initials {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--azul-gris);
+    text-transform: uppercase;
+}
+/* 2. NAVBAR MODIFICADA */
+.navbar .user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.user-name {
+    font-weight: 700;
+    color: var(--texto-oscuro);
+}
+/* 3. TARJETA DE BIENVENIDA CON FOTO GRANDE */
+.welcome-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--gris-borde);
+    box-shadow: var(--sombra-suave);
+}
+.welcome-photo-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--verde-claro);
+    box-shadow: 0 4px 10px rgba(0, 184, 107, 0.15);
+    flex-shrink: 0;
+    background-color: var(--gris-borde);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.welcome-photo-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.welcome-photo-large .profile-initials {
+    font-size: 2.5rem;
+}
+/* 4. GRID DE ESTADÍSTICAS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.stat-card {
+    background: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease;
+}
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+.stat-number {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--verde-principal);
+    margin-bottom: 0.25rem;
+}
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--azul-gris);
+    font-weight: 600;
+}
+/* 5. SECCIÓN INSCRIPCIÓN A AULA */
+.section-card {
+    background-color: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+.input-inline {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    max-width: 480px;
+}
+/* 6. UTILIDADES */
+.oculto {
+    display: none !important;
+}
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .welcome-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .input-inline {
+        flex-direction: column;
+    }
+}
