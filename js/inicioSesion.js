@@ -18,19 +18,27 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             if (!usuarioEncontrado) {
-                alert("Correo o contraseña incorrectos.");
+                Swal.fire({
+                    title: "¡Algo salio mal!",
+                    text: "Correo o contraseña incorrectos",
+                    icon: "error",
+                    iconColor:"#00B86B",
+                    showConfirmButton:false,
+                    timer:2500,
+                    timerProgressBar:true
+                });
                 return;
             }
 
-            // Asegurar que tenga la propiedad foto_perfil asignada
+            // asegurar que tenga la propiedad foto_perfil asignada
             if (!usuarioEncontrado.foto_perfil) {
                 usuarioEncontrado.foto_perfil = usuarioEncontrado.rol === "instructor" ? "img/instructor.png" : "img/aprendiz.png";
             }
 
-            // Guardar usuario activo en sesión
+            // guardar usuario activo en sesión
             localStorage.setItem("usuario", JSON.stringify(usuarioEncontrado));
 
-            // Redirección según rol
+            // redirección según rol
             if (usuarioEncontrado.rol === "instructor") {
                 window.location.href = "instructor.html";
             } else {
