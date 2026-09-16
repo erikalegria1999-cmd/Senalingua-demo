@@ -18,11 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
             const existe = usuarios.some(u => u.correo.toLowerCase() === correo);
-            if (existe) {
-                alert("Este correo electrónico ya está registrado.");
+            if (existe){
+                Swal.fire({
+                    position: "top-center",
+                    icon: "warning",
+                    iconColor: "#00b464",
+                    title: "<span style='color:#00B86B; font-family:sans-serif;'>Este correo ya está registrado</span>",
+                    background: " #ffffff",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    didOpen: (popup) => {
+                        popup.style.borderRadius = '30px';
+                    }      
+                });
                 return;
             }
-
             // Asignación de foto según el rol
             const fotoPerfil = rol === "instructor" ? "img/instructor.png" : "img/aprendiz.png";
 
@@ -38,9 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
             usuarios.push(nuevoUsuario);
             localStorage.setItem("usuarios", JSON.stringify(usuarios));
+            
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                iconColor: "#00b464",
+                title: "<span style='color:#009854; font-family:sans-serif;'>¡Cuenta creada exitosamente!</span>",
+                showConfirmButton: false,
+                timer: 2000,
+                didOpen: (popup) => {
+                        popup.style.borderRadius = '30px';
+                    }      
+                });            
+            
 
-            alert("¡Cuenta creada exitosamente!");
-            window.location.href = "inicioSesion.html";
         });
     }
 });
