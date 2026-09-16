@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor — SENALingua</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- HOJAS DE ESTILO -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/instructor.css">
+</head>
+<body>
+
+    <!-- NAVBAR SUPERIOR -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="logo">SENA<span> Lingua</span></a>
+                <div class="user-info">
+                    <div class="profile-photo-container" id="nav-profile-photo"></div>
+                    <span class="user-name" id="user-display-name">Instructor</span>
+                    <button id="btn-logout" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Cerrar sesión</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="hero-section">
+        
+        <!-- BIENVENIDA -->
+        <div class="instructor-header">
+            <div>
+                <span class="badge-category">Instructor · ADSO</span>
+                <h1 class="hero-title">Instructor Dashboard</h1>
+                <p class="hero-description">Hello, <span id="instructor-name">Santiago</span>. Manage classrooms and apprentices.</p>
+            </div>
+            <button id="btn-toggle-create" class="btn btn-primary">+ Create Classroom</button>
+        </div>
+
+        <!-- TARJETAS DE ESTADÍSTICAS -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="total-classrooms">1</div>
+                <div class="stat-label">Classrooms</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="total-apprentices">21</div>
+                <div class="stat-label">Apprentices</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="avg-per-class">21</div>
+                <div class="stat-label">Avg. per class</div>
+            </div>
+        </div>
+
+        <!-- FORMULARIO CREAR AULA (Oculto por defecto o desplegable) -->
+        <div id="create-classroom-card" class="section-card oculto">
+            <h2 class="feature-title" style="font-size: 1.25rem;">Create New Classroom</h2>
+            <p class="hero-description" style="margin-top: 0.25rem;">Enter the ficha number. The system will generate an access code.</p>
+            
+            <form id="form-create-class">
+                <div class="form-grid">
+                    <div>
+                        <label style="font-size: 0.85rem; font-weight: 600;">Ficha number</label>
+                        <input type="text" id="ficha-number" placeholder="Ej. 3312932" required>
+                    </div>
+                    <div>
+                        <label style="font-size: 0.85rem; font-weight: 600;">Programme</label>
+                        <input type="text" id="programme-name" value="Análisis y Desarrollo de Software (ADSO)" required>
+                    </div>
+                </div>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                    <button type="submit" class="btn btn-primary">Create Classroom</button>
+                    <button type="button" id="btn-cancel-create" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- TABLA DE AULAS CREATIVAS -->
+        <div class="table-container">
+            <h2 class="feature-title" style="font-size: 1.25rem; margin-bottom: 1rem;">Active Classrooms</h2>
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Programme</th>
+                        <th>Ficha</th>
+                        <th>Code</th>
+                        <th>Learners</th>
+                        <th>Date</th>
+                        <th>State</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="classrooms-tbody">
+                    <tr>
+                        <td>Análisis y Desarrollo de Software (ADSO)</td>
+                        <td>3312932</td>
+                        <td><strong>ADSO331</strong></td>
+                        <td>21</td>
+                        <td>10/2/2026</td>
+                        <td><span class="badge-active">Active</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;">View Apprentices</button>
+                                <button class="btn btn-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem; color: red;">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 SENALingua · Software Analysis and Development.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/datos.js"></script>
+    <script src="js/instructor.js"></script>
+</body>
+</html>

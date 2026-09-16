@@ -1,0 +1,193 @@
+/* BARRA SUPERIOR / NAVBAR LIGERA */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gris-borde);
+}
+
+.nav-left-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--blanco);
+    padding: 0.375rem 0.875rem 0.375rem 0.5rem;
+    border-radius: 30px;
+    border: 1px solid var(--verde-claro);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.btn-back {
+    background-color: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--azul-gris);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+    background-color: var(--verde-suave);
+    color: var(--texto-oscuro);
+}
+
+.brand-logo {
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--verde-principal);
+    letter-spacing: -0.02em;
+}
+
+.nav-right-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+.badge-green {
+    background-color: var(--verde-claro);
+    color: var(--verde-hover);
+    border: 1px solid var(--verde-claro);
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.badge-lang {
+    background-color: var(--blanco);
+    color: var(--azul-gris);
+    border: 1px solid var(--gris-borde);
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* CONTENEDOR PRINCIPAL Y TARJETA (CARD) */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.25rem;
+}
+
+.card-container {
+    background-color: var(--blanco);
+    width: 100%;
+    max-width: 440px;
+    padding: 2.5rem 2.25rem;
+    border-radius: 24px;
+    border: 1px solid var(--gris-borde);
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+}
+.tag-pill {
+    display: inline-block;
+    background-color: var(--verde-claro);
+    color: var(--verde-principal);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.35rem 0.875rem;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+}
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--verde-principal);
+    margin-bottom: 0.625rem;
+    letter-spacing: -0.02em;
+}
+.card-subtitle {
+    font-size: 0.75rem;
+    color: var(--azul-gris);
+    line-height: 1.5;
+    margin-bottom: 1.75rem;
+    padding: 0 0.625rem;
+}
+
+/* FORMULARIO E INPUTS */
+.form-layout {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.input-group {
+    margin-bottom: 1.25rem;
+}
+.input-group label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--verde-principal);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.input-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--gris-borde);
+    border-radius: 10px;
+    background-color: var(--blanco);
+    font-size: 0.85rem;
+    color: var(--texto-oscuro);
+    outline: none;
+    transition: all 0.2s ease;
+}
+.input-group input::placeholder {
+    color: var(--azul-gris);
+    opacity: 0.6;
+}
+.input-group input:focus {
+    border-color: var(--verde-principal);
+    box-shadow: 0 0 0 3px rgba(0, 184, 107, 0.15);
+}
+/* BOTONES INTEGRADOS */
+.btn-submit-login {
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+.forgot-wrapper {
+    text-align: right;
+    margin-bottom: 1rem;
+    margin-top: -0.375rem;
+}
+.forgot-link {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--verde-principal);
+    text-decoration: none;
+}
+.forgot-link:hover {
+    text-decoration: underline;
+
+}.card-footer-text {
+    margin-top: 1.75rem;
+    font-size: 0.75rem;
+    color: var(--azul-gris);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.375rem;
+}
+.card-footer-text a {
+    color: var(--verde-principal);
+    font-weight: 700;
+    text-decoration: none;
+}
+.card-footer-text a:hover {
+    text-decoration: underline;
+}
