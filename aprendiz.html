@@ -3,90 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprendiz — SENALingua</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- HOJAS DE ESTILO -->
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/aprendiz.css">
+    <title>Aprendiz · SENALingua</title>
+    
+    <link rel="stylesheet" href="css/estilos.css">
+ 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
+    <div class="encabezado">
+        <div class="encabezado-caja">
+            <div class="encabezado-izq">
+                <button type="button" class="boton gris" onclick="irInicio()">Back</button>
+                <a class="logo" href="index.html">SENA<span>Lingua</span></a>
+            </div>
+            <span class="badge">Aprendiz · ADSO</span>
+        </div>
+    </div>
 
-    <!-- NAVBAR SUPERIOR -->
-    <header class="site-header">
-        <nav class="navbar">
-            <div class="navbar-container">
-                <a href="index.html" class="logo">SENA<span> Lingua</span></a>
-                <div class="user-info">
-                    <div class="profile-photo-container" id="nav-profile-photo"></div>
-                    <span class="user-name" id="user-display-name">Aprendiz SENA</span>
-                    <button id="btn-logout" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Cerrar sesión</button>
+    <div class="contenedor">
+        <div class="tarjeta fila-perfil">
+            <div class="perfil-izq">
+                <span class="avatar" id="avatar">KN</span>
+                <div class="perfil-texto">
+                    <strong id="nombreChip">Aprendiz</strong>
+                    <span class="muted" id="nivelChip">CEFR A1</span>
                 </div>
             </div>
-        </nav>
-    </header>
+            <div class="acciones">
+                <button type="button" class="boton blanco" onclick="abrirPerfil()">My profile</button>
+                <button type="button" class="boton gris" onclick="cerrarSesion()">Log out</button>
+            </div>
+        </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="hero-section">
-        
-        <!-- BIENVENIDA CON FOTO GRANDE -->
-        <div class="welcome-section">
-            <div class="welcome-photo-large" id="welcome-profile-photo"></div>
+        <div class="tarjeta hero">
             <div>
-                <span class="badge-category">Aprendiz · ADSO</span>
-                <h1 class="hero-title">Welcome, <span class="text-gradient" id="welcome-name">Aprendiz</span></h1>
-                <p class="hero-description">Your personalised technical English learning pathway.</p>
+                <span class="badge">ADSO · A1</span>
+                <h1 class="titulo" id="bienvenida">Welcome</h1>
+                <p class="muted">Your personalised technical English learning pathway</p>
+            </div>
+            <div class="caja-progreso">
+                <h2 id="porcentaje">0%</h2>
+                <div class="barra">
+                    <div class="relleno" id="rellenoProgreso"></div>
+                </div>
             </div>
         </div>
 
-        <!-- TARJETAS DE ESTADÍSTICAS -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number" id="streak-count">0</div>
-                <div class="stat-label">Study Streak (Racha)</div>
+        <div class="stats">
+            <div class="stat">
+                <h2 id="statRacha">1</h2>
+                <p>Study Streak</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" id="points-count">0</div>
-                <div class="stat-label">Learning Points</div>
+            <div class="stat">
+                <h2 id="statPuntos">0</h2>
+                <p>Learning Points</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" id="rank-display">—</div>
-                <div class="stat-label">Classroom Rank</div>
+            <div class="stat">
+                <h2 id="statRango">—</h2>
+                <p>Classroom Rank</p>
             </div>
-            <div class="stat-card">
-                <div class="stat-number" id="progress-percent">0%</div>
-                <div class="stat-label">Route Progress</div>
+            <div class="stat">
+                <h2 id="statProgreso">0%</h2>
+                <p>Route Progress</p>
             </div>
         </div>
 
-        <!-- INSCRIPCIÓN A AULA -->
-        <div class="section-card">
-            <h2 class="feature-title" style="font-size: 1.25rem;">Classroom Enrolment</h2>
-            <p class="hero-description" style="margin-top: 0.5rem;">Enter your instructor's access code (e.g. ADSO331).</p>
-            
-            <form id="form-enrolment" class="input-inline">
-                <input type="text" id="class-code" placeholder="Código del aula..." class="input-group" style="margin: 0; flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--gris-borde); border-radius: 10px;" required>
-                <button type="submit" class="btn btn-primary">Unirse</button>
-            </form>
-            <p id="enrolment-error" class="error oculto" style="color: red; font-size: 0.8rem; margin-top: 0.5rem;"></p>
+        <div id="cajaUnir" class="tarjeta">
+            <h2>Classroom Enrolment</h2>
+            <p class="muted">Enter your instructor's access code (e.g. ADSO331).</p>
+            <div class="fila-form">
+                <input type="text" id="codigoAula" placeholder="ADSO331" autocomplete="off">
+                <button type="button" class="boton verde" onclick="unirse()">Join Classroom</button>
+            </div>
+            <p id="errorUnir" class="error oculto"></p>
         </div>
-    </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-bottom">
-            <div class="footer-bottom-container">
-                <p>&copy; 2026 SENALingua — Panel de Aprendiz.</p>
+        <div id="cajaAula" class="tarjeta oculto">
+            <p>Enrolled with code <strong id="codigoInscrito"></strong></p>
+            <p>Date: <strong id="fechaAula"></strong></p>
+            <p>State: <span id="estadoAula" class="estado">Active</span></p>
+        </div>
+
+        <h2>Learning Modules · A1</h2>
+        <div class="modulos" id="listaModulos"></div>
+    </div>
+
+    <div id="fondoPerfil" class="fondo-modal oculto">
+        <div class="tarjeta caja-modal">
+            <h2>Your Profile</h2>
+            <p class="muted">Manage your personal information.</p>
+            <label for="perfilNombre">Full name</label>
+            <input type="text" id="perfilNombre">
+            <label for="perfilEmail">Institutional email</label>
+            <input type="email" id="perfilEmail">
+            <p class="muted">CEFR A1 · Software Apprentice</p>
+            <p id="msgGuardado" class="ok oculto">Profile updated successfully.</p>
+            <div class="fila-botones">
+                <button type="button" class="boton gris" onclick="cerrarPerfil()">Cancel</button>
+                <button type="button" class="boton verde" onclick="guardarPerfil()">Save changes</button>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- SCRIPTS -->
+    <p class="pie">© 2026 SENALingua · Software Analysis and Development</p>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="js/datos.js"></script>
     <script src="js/aprendiz.js"></script>
 </body>
