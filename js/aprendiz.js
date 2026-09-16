@@ -72,25 +72,22 @@ function cargarFotoPerfil(usuario, contenedor) {
     if (!contenedor) return;
     contenedor.innerHTML = "";
 
-    // Seleccionar ruta por defecto si foto_perfil no existe
-    let rutaImagen = usuario.foto_perfil;
-    if (!rutaImagen) {
-        rutaImagen = usuario.rol === "instructor" ? "img/instructor.png" : "img/aprendiz.png";
-    }
-
+    // 1. Determinar el fallback según el rol
+    const fotoDefault = usuario.rol === "instructor" ? "img/instructor.png" : "img/apprentice.png";
+        // 2. Usar la foto guardada o el fallback correcto
+    const rutaImagen = usuario.foto_perfil || usuario.foto || fotoDefault;
+    // 3. Crear el elemento <img>
     const img = document.createElement("img");
     img.src = rutaImagen;
-    img.alt = `Avatar de ${usuario.nombre}`;
+    img.alt = `Avatar de ${usuario.nombre || 'Usuario'}`;
     img.style.width = "100%";
     img.style.height = "100%";
     img.style.objectFit = "cover";
-    img.style.borderRadius = "50%";
-
-    // Si la imagen no se encuentra en 'img/', intenta buscarla un nivel arriba '../img/'
+    // 4. Fallback si la ruta en localStorage estuviera rota
     img.onerror = function() {
         if (!this.dataset.triedFallback) {
             this.dataset.triedFallback = "true";
-            this.src = "../" + rutaImagen;
+            this.src = fotoDefault;
         }
     };
 
