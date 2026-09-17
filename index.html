@@ -3,50 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SENA Lingua</title>
+    <meta name="description" content="Plataforma interactiva para el aprendizaje de inglés técnico orientado al desarrollo de software en la comunidad SENA.">
+    <title>SENA Lingua - Technical English for Developers</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <!-- NAVBAR -->
     <header class="site-header">
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Navegación principal">
             <div class="navbar-container">
                 <!-- Logo -->
                 <a href="index.html" class="logo">
                     SENA <span>Lingua</span>
                 </a>
-                <!-- Checkbox invisible para menú mobile responsivo (Sin JS) -->
-                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-                <label for="menu-toggle" class="mobile-menu-btn" aria-label="Abrir menú">
+
+                <!-- Menú mobile responsivo -->
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-hidden="true">
+                <label for="menu-toggle" class="mobile-menu-btn" aria-label="Abrir o cerrar menú de navegación">
                     <span></span>
                     <span></span>
                     <span></span>
                 </label>
+
                 <!-- Enlaces de navegación -->
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="practice.html">Practice</a></li>
-                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="aprendices.html">Aprendices</a></li>                    
+                    <li><a href="leccion.html">Lecciones</a></li>
                 </ul>
+
                 <!-- Botones de Acción -->
                 <div class="nav-buttons">
-                    <a href="inicioSesion.html" class="login-btn">Log In</a>
+                    <a href="inicio-sesion.html" class="login-btn">Log In</a>
                     <a href="registro.html" class="register-btn">Sign Up</a>
                 </div>
             </div>
         </nav>
     </header>
+
     <!-- MAIN CONTENT -->
     <main class="main-content">
         <!-- Main Hero Section -->
-        <section class="hero-section">
+        <section class="hero-section" aria-labelledby="hero-heading">
             <div class="hero-grid">
                 <div class="hero-content">
                     <span class="badge-category">Intercommunication Platform for Software Developers</span>
-                    <h1 class="hero-title">
+                    <h1 id="hero-heading" class="hero-title">
                         Master <br>
                         <span class="text-gradient">Technical English for <br>Software Development</span>
                     </h1>
@@ -54,12 +58,13 @@
                         A specialized platform designed to help developers gain confidence, comprehend technical documentation, troubleshoot error messages, communicate effectively in Agile environments, and excel in real-world software engineering scenarios.
                     </p>
                     <div class="cta-group">
-                        <button class="btn btn-primary" id="btn-createAccount"  >Create Account</button>
-                        <button class="btn btn-secondary" id="btn-logIn" >Log In</button>
+                        <a href="registro.html" class="btn btn-primary" id="btn-createAccount">Create Account</a>
+                        <a href="inicio-sesion.html" class="btn btn-secondary" id="btn-logIn">Log In</a>
                     </div>
                 </div>
+
                 <!-- Code Editor Component -->
-                <div class="editor-wrapper">
+                <div class="editor-wrapper" aria-hidden="true">
                     <div class="editor-card">
                         <div class="editor-header">
                             <div class="window-controls">
@@ -81,85 +86,98 @@
             </div>
         </section>
 
-        <!-- Secondary Bar / Technologies -->
-        <div class="tech-bar">
-            <div class="tech-bar-container">
-                <span>FRONTEND ENVIRONMENT</span>
-                <span>BACKEND TOOLS</span>
-                <span>APIS & DOCUMENTATION</span>
-                <span>AGILE CEREMONIES</span>
-                <span>CODE REVIEW</span>
-                <span>ERROR MANAGEMENT</span>
-                <span>TECH TALKS</span>
+        <!-- Secondary Bar / Technologies (Carrusel Infinito) -->
+        <aside class="tech-bar" aria-label="Tecnologías y temas cubiertos">
+            <div class="tech-bar-track">
+                <!-- Grupo 1 -->
+                <div class="tech-bar-content">
+                    <span>FRONTEND ENVIRONMENT</span>
+                    <span>BACKEND TOOLS</span>
+                    <span>APIS &amp; DOCUMENTATION</span>
+                    <span>AGILE CEREMONIES</span>
+                    <span>CODE REVIEW</span>
+                    <span>ERROR MANAGEMENT</span>
+                    <span>TECH TALKS</span>
+                </div>
+                <!-- Grupo 2 (Duplicado exacto para efecto infinito continuo) -->
+                <div class="tech-bar-content" aria-hidden="true">
+                    <span>FRONTEND ENVIRONMENT</span>
+                    <span>BACKEND TOOLS</span>
+                    <span>APIS &amp; DOCUMENTATION</span>
+                    <span>AGILE CEREMONIES</span>
+                    <span>CODE REVIEW</span>
+                    <span>ERROR MANAGEMENT</span>
+                    <span>TECH TALKS</span>
+                </div>
             </div>
-        </div>
+        </aside>
 
         <!-- Ecosystem Banner -->
-        <section class="banner-section">
+        <section class="banner-section" aria-labelledby="banner-heading">
             <div class="banner-card">
-                <h2 class="banner-title">Designed for the Software Development Ecosystem</h2>
+                <h2 id="banner-heading" class="banner-title">Designed for the Software Development Ecosystem</h2>
                 <p class="banner-text">
-                    Over 73% of developers struggle with understanding technical documentation, system messages, APIs, and professional communication in English. SENAI LanguageLab bridges this gap with an intuitive platform that connects language learning with practical, functional software development exercises.
+                    Over 73% of developers struggle with understanding technical documentation, system messages, APIs, and professional communication in English. SENA Lingua bridges this gap with an intuitive platform that connects language learning with practical, functional software development exercises.
                 </p>
             </div>
         </section>
 
         <!-- Core Product Capabilities -->
-        <section class="features-section">
+        <section class="features-section" aria-labelledby="features-heading">
             <div class="section-header">
                 <span class="section-kicker">Features</span>
-                <h2 class="section-title">Core Product Capabilities</h2>
+                <h2 id="features-heading" class="section-title">Core Product Capabilities</h2>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon icon-blue">📋</div>
+                <article class="feature-card">
+                    <div class="feature-icon icon-blue" aria-hidden="true">📋</div>
                     <h3 class="feature-title">CEFR Diagnostic Assessment</h3>
                     <p class="feature-description">Initial placement across beginner, intermediate, and advanced levels in reading, writing, listening, speaking, and developer-specific terminology.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-amber">⚙️</div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon icon-amber" aria-hidden="true">⚙️</div>
                     <h3 class="feature-title">Skill-Based Technical Practice</h3>
                     <p class="feature-description">Interactive syntax models for documentation comprehension, Agile communication protocols, and code review practices based on real-world scenarios.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-purple">🧩</div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon icon-purple" aria-hidden="true">🧩</div>
                     <h3 class="feature-title">Contextual LMS Modules</h3>
                     <p class="feature-description">Tailored learning paths covering Git commands, deployment errors, debug logs, design patterns, and cross-cultural technical alignment.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-emerald">📊</div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon icon-emerald" aria-hidden="true">📊</div>
                     <h3 class="feature-title">Instructor Observability</h3>
                     <p class="feature-description">Real-time performance analytics dashboards to assess engineering competency models, highlighting critical areas that require team-wide leveling.</p>
-                </div>
+                </article>
             </div>
         </section>
 
         <!-- Learning Roadmap -->
-        <section class="roadmap-section">
+        <section class="roadmap-section" aria-labelledby="roadmap-heading">
             <div class="section-header">
                 <span class="section-kicker">Progress</span>
-                <h2 class="section-title">Learning Roadmap</h2>
+                <h2 id="roadmap-heading" class="section-title">Learning Roadmap</h2>
             </div>
             <div class="roadmap-grid">
                 <div class="roadmap-card">
                     <span class="step-number">01</span>
-                    <div class="check-icon">✓</div>
-                    <h3 class="step-title">Access & Welcome Assessment</h3>
+                    <div class="check-icon" aria-hidden="true">✓</div>
+                    <h3 class="step-title">Access &amp; Welcome Assessment</h3>
                 </div>
                 <div class="roadmap-card">
                     <span class="step-number">02</span>
-                    <div class="check-icon">✓</div>
-                    <h3 class="step-title">LMS Integration & Path Assignment</h3>
+                    <div class="check-icon" aria-hidden="true">✓</div>
+                    <h3 class="step-title">LMS Integration &amp; Path Assignment</h3>
                 </div>
                 <div class="roadmap-card">
                     <span class="step-number">03</span>
-                    <div class="check-icon">✓</div>
-                    <h3 class="step-title">Customized Path & Module Practice</h3>
+                    <div class="check-icon" aria-hidden="true">✓</div>
+                    <h3 class="step-title">Customized Path &amp; Module Practice</h3>
                 </div>
                 <div class="roadmap-card">
                     <span class="step-number">04</span>
-                    <div class="check-icon">✓</div>
-                    <h3 class="step-title">Feedback & Continuous Improvement</h3>
+                    <div class="check-icon" aria-hidden="true">✓</div>
+                    <h3 class="step-title">Feedback &amp; Continuous Improvement</h3>
                 </div>
             </div>
         </section>
@@ -178,20 +196,20 @@
                 </p>
             </div>
             <!-- Columna 2: Navegación -->
-            <div class="footer-col">
+            <nav class="footer-col" aria-label="Navegación del pie de página">
                 <h4 class="footer-title">Navigation</h4>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="practice.html">Practice</a></li>
+                    <li><a href="aprendices.html">Aprendices</a></li>
+                    <li><a href="instructor.html">Instructores</a></li>
                 </ul>
-            </div>
+            </nav>
             <!-- Columna 3: Recursos -->
             <div class="footer-col">
                 <h4 class="footer-title">Resources</h4>
                 <ul class="footer-links">
-                    <li><a href="resources.html">Library</a></li>
+                    <li><a href="leccion.html">Lecciones</a></li>
                     <li><a href="#">Study Guides</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">Support</a></li>

@@ -8,60 +8,70 @@ document.addEventListener("DOMContentLoaded", () => {
             const nombreInput = document.getElementById("nombre");
             const correoInput = document.getElementById("correo");
             const claveInput = document.getElementById("clave");
-            const rolInput = document.getElementById("rol");
 
             const nombre = nombreInput.value.trim();
             const correo = correoInput.value.trim().toLowerCase();
             const clave = claveInput.value.trim();
-            const rol = rolInput.value;
 
             const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
+            // Validar si el correo ya existe
             const existe = usuarios.some(u => u.correo.toLowerCase() === correo);
-            if (existe){
+            if (existe) {
                 Swal.fire({
-                    position: "top-center",
                     icon: "warning",
-                    iconColor: "#00b464",
-                    title: "<span style='color:#00B86B; font-family:sans-serif;'>Este correo ya está registrado</span>",
-                    background: " #ffffff",
-                    showConfirmButton: false,
-                    timer: 1500,
+                    iconColor: "#00b86b",
+                    title: "Email already registered",
+                    text: "This email address is already associated with an account.",
+                    confirmButtonText: "Got it",
+                    confirmButtonColor: "#00b86b",
+                    background: "#ffffff",
+                    customClass: {
+                        popup: "custom-swal-popup",
+                        title: "custom-swal-title",
+                        htmlContainer: "custom-swal-text",
+                        confirmButton: "custom-swal-btn"
+                    },
                     didOpen: (popup) => {
-                        popup.style.borderRadius = '30px';
-                    }      
+                        popup.style.borderRadius = "20px";
+                    }
                 });
                 return;
             }
-            // Asignación de foto según el rol
-            const fotoPerfil = rol === "instructor" ? "img/instructor.png" : "img/aprendiz.png";
 
+            // Guardar usuario sin rol predeterminado
             const nuevoUsuario = {
                 nombre: nombre,
                 correo: correo,
                 clave: clave,
-                rol: rol,
-                foto_perfil: fotoPerfil,
                 racha: 1,
                 puntos: 0
             };
 
             usuarios.push(nuevoUsuario);
             localStorage.setItem("usuarios", JSON.stringify(usuarios));
-            
-            Swal.fire({
-                position: "top-center",
-                icon: "success",
-                iconColor: "#00b464",
-                title: "<span style='color:#009854; font-family:sans-serif;'>¡Cuenta creada exitosamente!</span>",
-                showConfirmButton: false,
-                timer: 2000,
-                didOpen: (popup) => {
-                        popup.style.borderRadius = '30px';
-                    }      
-                });            
-            
 
+            // Alerta de éxito con el diseño personalizado
+            Swal.fire({
+                icon: "success",
+                iconColor: "#00b86b",
+                title: "Account Created!",
+                text: "Your account has been successfully created. Please log in to continue.",
+                confirmButtonText: "Got it",
+                confirmButtonColor: "#00b86b",
+                background: "#ffffff",
+                customClass: {
+                    popup: "custom-swal-popup",
+                    title: "custom-swal-title",
+                    htmlContainer: "custom-swal-text",
+                    confirmButton: "custom-swal-btn"
+                },
+                didOpen: (popup) => {
+                    popup.style.borderRadius = "20px";
+                }
+            }).then(() => {
+                window.location.href = "inicio-sesion.html";
+            });
         });
     }
 });

@@ -1,73 +1,126 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprendices · SENALingua</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <meta name="description" content="Apprentice Management Dashboard — SENA Lingua">
+    <title>SENA Lingua — Enrolled Students</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CDN SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- HOJAS DE ESTILO -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/aprendices.css">
 </head>
 <body>
-    <div class="encabezado">
-        <div class="encabezado-caja">
-            <div class="encabezado-izq">
-                <button type="button" class="boton gris" onclick="irPanelInstructor()">Back</button>
-                <a class="logo" href="index.html">SENA<span>Lingua</span></a>
-            </div>
-            <span class="badge">Instructor · ADSO</span>
-        </div>
-    </div>
 
-    <div class="contenedor">
-        <div id="sinAula" class="tarjeta oculto">
-            <p>Classroom not found.</p>
-            <button type="button" class="boton verde" onclick="irPanelInstructor()">Back to Dashboard</button>
-        </div>
+    <!-- HEADER / NAVBAR -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="navbar-container">
+                <a href="index.html" class="logo">SENA<span> Lingua</span></a>
 
-        <div id="detalleAula">
-            <div class="tarjeta fila-entre">
-                <div>
-                    <p><span class="badge" id="pillFicha">Apprentices</span></p>
-                    <h1 class="titulo" id="tituloPrograma">Programme</h1>
-                    <p><span class="codigo" id="codigoAula"></span> · <span id="conteo"></span></p>
-                </div>
-                <button type="button" class="estado" id="btnEstado" onclick="cambiarEstado()">Active</button>
-            </div>
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-hidden="true">
+                <label for="menu-toggle" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
 
-            <div class="tarjeta">
-                <h2>Classroom dates</h2>
-                <p>Date: <span id="fechaAula"></span></p>
-                <label for="nuevaFecha">New date</label>
-                <div class="fila-form">
-                    <input type="text" id="nuevaFecha" placeholder="10/2/2026">
-                    <button type="button" class="boton verde" onclick="guardarFecha()">Save date</button>
-                </div>
-                <p id="msgFecha" class="ok oculto">Date updated.</p>
-            </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="aprendices.html" class="active">Students</a></li>                    
+                    <li><a href="leccion.html">Lessons</a></li>
+                </ul>
 
-            <div class="tarjeta">
-                <h2>Enrolled Apprentices</h2>
-                <div class="tabla-caja">
-                    <table class="tabla">
-                        <thead>
-                            <tr>
-                                <th>Full Name</th>
-                                <th>Email</th>
-                                <th>Level</th>
-                                <th>Streak</th>
-                                <th>Points</th>
-                                <th>Activity</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="cuerpoAprendices"></tbody>
-                    </table>
+                <div class="nav-buttons">
+                    <button type="button" class="login-btn" onclick="irPanelInstructor()">Back to Dashboard</button>
+                    <span class="tag-pill">Instructor · ADSO</span>
                 </div>
             </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-wrapper">
+        <div class="container">
+            
+            <!-- TARJETA CUANDO NO HAY AULA -->
+            <div id="sinAula" class="dashboard-card oculto">
+                <p class="error-msg">Classroom not found or unselected.</p>
+                <button type="button" class="btn-primary" onclick="irPanelInstructor()">Back to Dashboard</button>
+            </div>
+
+            <!-- DETALLE DEL AULA -->
+            <div id="detalleAula" class="dashboard-grid">
+                
+                <!-- ENCABEZADO DEL PROGRAMA -->
+                <div class="dashboard-card fila-entre">
+                    <div class="header-info">
+                        <span class="tag-pill" id="pillFicha">Apprentices</span>
+                        <h1 class="card-title" id="tituloPrograma">Programme</h1>
+                        <p class="card-subtitle"><span class="codigo" id="codigoAula"></span> · <span id="conteo"></span></p>
+                    </div>
+                    <button type="button" class="status-badge" id="btnEstado" onclick="cambiarEstado()">Active</button>
+                </div>
+
+                <!-- FECHAS DE AULA -->
+                <div class="dashboard-card">
+                    <h2 class="card-subtitle-bold">Classroom dates</h2>
+                    <p class="text-sm">Current Start Date: <strong id="fechaAula">--/--/----</strong></p>
+                    
+                    <div class="form-group-inline">
+                        <label for="nuevaFecha" class="sr-only">New date</label>
+                        <input type="date" id="nuevaFecha" class="form-input">
+                        <button type="button" class="btn-primary" onclick="guardarFecha()">Save Date</button>
+                    </div>
+                    <p id="msgFecha" class="success-msg oculto">Date updated successfully.</p>
+                </div>
+
+                <!-- TABLA DE APRENDICES -->
+                <div class="dashboard-card">
+                    <h2 class="card-subtitle-bold">Enrolled Apprentices</h2>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Level</th>
+                                    <th>Streak</th>
+                                    <th>Points</th>
+                                    <th>Activity</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoAprendices">
+                                <!-- Filas renderizadas mediante JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
+    </main>
 
-    <p class="pie">© 2026 SENALingua · Software Analysis and Development</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 SENA Lingua — Technical English Platform for Developers.</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- SCRIPTS -->
     <script src="js/datos.js"></script>
     <script src="js/aprendices.js"></script>
 </body>

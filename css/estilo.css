@@ -1,22 +1,33 @@
-/* VARIABLES Y PALETA DE COLORES REFINADA */
+/*VARIABLES Y SISTEMA DE DISEÑO */
 :root {
+    /* Paleta de Colores */
     --verde-principal: #00B86B;
+    --verde-hover: #009958;
     --verde-claro: #DFF7EC;
     --verde-suave: #EEFBEF;
     --azul-gris: #60758F;
+    --texto-oscuro: #1E293B;
     --blanco: #FFFFFF;
     --gris-borde: #DCE5ED;
-    /* Estados derivados y sombras orgánicas */
-    --verde-hover: #009958;
-    --texto-oscuro: #1E293B;
+
+    /* Geometría y Sombras */
+    --radius-sm: 8px;
+    --radius-md: 10px;
     --sombra-suave: 0 10px 30px -10px rgba(0, 184, 107, 0.25);
+    --sombra-card: 0 4px 20px rgba(0, 0, 0, 0.03);
+    
+    /* Animaciones */
+    --transition-fast: all 0.2s ease;
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* Reset básico */
-* {
+
+/* Reset Básico */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--verde-suave);
@@ -25,18 +36,28 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    -webkit-font-smoothing: antialiased;
 }
+
+/* Accesibilidad global */
+:focus-visible {
+    outline: 2px solid var(--verde-principal);
+    outline-offset: 2px;
+}
+
 /* HEADER & NAVBAR */
 .site-header {
     position: sticky;
     top: 0;
     z-index: 1000;
 }
+
 .navbar {
     background-color: var(--blanco);
     border-bottom: 1px solid var(--gris-borde);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    box-shadow: var(--sombra-card);
 }
+
 .navbar-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -47,6 +68,7 @@ body {
     gap: 1.5rem;
     position: relative;
 }
+
 /* Brand / Logo */
 .logo {
     font-size: 1.35rem;
@@ -54,17 +76,20 @@ body {
     color: var(--texto-oscuro);
     text-decoration: none;
     letter-spacing: -0.02em;
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-fast);
     display: inline-flex;
     align-items: center;
 }
+
 .logo:hover {
     transform: scale(1.03);
 }
+
 .logo span {
     color: var(--verde-principal);
-    margin-left: 4px;
+    margin-left: 0.25rem;
 }
+
 /* Navigation Links */
 .nav-links {
     display: flex;
@@ -72,48 +97,55 @@ body {
     list-style: none;
     gap: 0.5rem;
 }
+
 .nav-links a {
     text-decoration: none;
     color: var(--azul-gris);
     font-weight: 500;
     font-size: 0.95rem;
     padding: 0.5rem 0.875rem;
-    border-radius: 8px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-smooth);
 }
+
 .nav-links a:hover {
     color: var(--verde-principal);
     background-color: var(--verde-suave);
     transform: translateY(-2px);
 }
+
 .nav-links a.active {
     color: var(--verde-principal);
     background-color: var(--verde-claro);
     font-weight: 600;
 }
+
 /* Botones Auth */
 .nav-buttons {
     display: flex;
     align-items: center;
     gap: 0.75rem;
 }
+
 .login-btn,
 .register-btn {
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
     padding: 0.6rem 1.25rem;
-    border-radius: 10px;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-md);
+    transition: var(--transition-smooth);
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
+
 .login-btn {
     color: var(--azul-gris);
     border: 1px solid var(--gris-borde);
     background-color: transparent;
 }
+
 .login-btn:hover {
     color: var(--texto-oscuro);
     border-color: var(--azul-gris);
@@ -121,24 +153,31 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
 .register-btn {
     color: var(--blanco);
     background-color: var(--verde-principal);
     border: 1px solid transparent;
 }
+
 .register-btn:hover {
     background-color: var(--verde-hover);
     transform: translateY(-2px);
     box-shadow: var(--sombra-suave);
 }
+
 .register-btn:active,
 .login-btn:active {
     transform: translateY(0);
 }
-/* MENÚ MOBILE PURO CSS (SIN JS) */
+
+/* Menú Hamburger CSS */
 .menu-checkbox {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
+
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
@@ -147,24 +186,28 @@ body {
     height: 18px;
     cursor: pointer;
 }
+
 .mobile-menu-btn span {
     height: 3px;
     width: 100%;
     background-color: var(--texto-oscuro);
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
-/* AQUI ESTA EL MAIN */
+
+/*ESTRUCTURA PRINCIPAL*/
 .main-content {
     flex: 1;
 }
-/* FOOTER ANIMADO */
+
+/*FOOTER*/
 .footer {
     background-color: var(--blanco);
     border-top: 1px solid var(--gris-borde);
     margin-top: auto;
     padding-top: 1.75rem;
 }
+
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -173,50 +216,60 @@ body {
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 2.5rem;
 }
+
 .footer-brand .logo {
     display: inline-block;
     margin-bottom: 1rem;
 }
+
 .footer-description {
     color: var(--azul-gris);
     font-size: 0.9rem;
     line-height: 1.6;
     max-width: 320px;
 }
+
 .footer-title {
     color: var(--texto-oscuro);
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 1.25rem;
 }
+
 .footer-links {
     list-style: none;
 }
+
 .footer-links li {
     margin-bottom: 0.75rem;
 }
+
 .footer-links a {
     text-decoration: none;
     color: var(--azul-gris);
     font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.25s ease;
+    transition: var(--transition-fast);
     display: inline-block;
 }
+
 .footer-links a:hover {
     color: var(--verde-principal);
     transform: translateX(4px);
 }
+
 .footer-info {
     color: var(--azul-gris);
     font-size: 0.9rem;
     margin-bottom: 1rem;
     line-height: 1.5;
 }
+
 .footer-socials {
     display: flex;
     gap: 0.5rem;
 }
+
 .social-btn {
     display: inline-flex;
     align-items: center;
@@ -224,7 +277,7 @@ body {
     min-width: 38px;
     height: 38px;
     padding: 0 0.5rem;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     background-color: var(--verde-suave);
     color: var(--verde-principal);
     border: 1px solid var(--verde-claro);
@@ -232,8 +285,9 @@ body {
     font-size: 0.85rem;
     text-decoration: none;
     white-space: nowrap;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition-smooth);
 }
+
 .social-btn:hover {
     background-color: var(--verde-principal);
     color: var(--blanco);
@@ -241,11 +295,13 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0, 184, 107, 0.25);
 }
+
 .footer-bottom {
     border-top: 1px solid var(--gris-borde);
     background-color: var(--verde-suave);
     padding: 1.25rem 0;
 }
+
 .footer-bottom-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -256,28 +312,34 @@ body {
     font-size: 0.85rem;
     color: var(--azul-gris);
 }
+
 .footer-legal {
     display: flex;
     gap: 1.5rem;
 }
+
 .footer-legal a {
     color: var(--azul-gris);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
 }
+
 .footer-legal a:hover {
     color: var(--verde-principal);
 }
-/* RESPONSIVO */
+
+/*MEDIA QUERIES (RESPONSIVO) */
 @media (max-width: 900px) {
     .footer-container {
         grid-template-columns: 1fr 1fr;
     }
 }
+
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: flex;
     }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -288,21 +350,25 @@ body {
         flex-direction: column;
         padding: 1.5rem;
         border-bottom: 1px solid var(--gris-borde);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        gap: 0.75rem;
     }
-    /* Activa menú en móviles usando el checkbox (Sin JS) */
+
     .menu-checkbox:checked ~ .nav-links {
         display: flex;
     }
+
     .nav-buttons {
         display: none;
     }
 }
+
 @media (max-width: 600px) {
     .footer-container {
         grid-template-columns: 1fr;
         gap: 2rem;
     }    
+
     .footer-bottom-container {
         flex-direction: column;
         gap: 0.75rem;

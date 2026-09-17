@@ -1,79 +1,100 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprendiz — SENALingua</title>
+    <meta name="description" content="Apprentice Dashboard — SENA Lingua">
+    <title>SENA Lingua — Student Dashboard</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- CDN SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- HOJAS DE ESTILO -->
     <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/aprendiz.css">
 </head>
 <body>
 
-    <!-- NAVBAR SUPERIOR -->
+    <!-- HEADER / NAVBAR -->
     <header class="site-header">
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
             <div class="navbar-container">
                 <a href="index.html" class="logo">SENA<span> Lingua</span></a>
+
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox" aria-hidden="true">
+                <label for="menu-toggle" class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="aprendiz.html" class="active">Students</a></li>                
+                    <li><a href="leccion.html">Lessons</a></li>
+                </ul>
+
                 <div class="user-info">
                     <div class="profile-photo-container" id="nav-profile-photo"></div>
                     <span class="user-name" id="user-display-name">Aprendiz SENA</span>
-                    <button id="btn-logout" class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">Cerrar sesión</button>
+                    <button id="btn-logout" type="button" class="btn-logout">Log Out</button>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="hero-section">
-        
-        <!-- BIENVENIDA CON FOTO GRANDE -->
-        <div class="welcome-section">
-            <div class="welcome-photo-large" id="welcome-profile-photo"></div>
-            <div>
-                <span class="badge-category">Aprendiz · ADSO</span>
-                <h1 class="hero-title">Welcome, <span class="text-gradient" id="welcome-name">Aprendiz</span></h1>
-                <p class="hero-description">Your personalised technical English learning pathway.</p>
-            </div>
-        </div>
-
-        <!-- TARJETAS DE ESTADÍSTICAS -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number" id="streak-count">0</div>
-                <div class="stat-label">Study Streak (Racha)</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="points-count">0</div>
-                <div class="stat-label">Learning Points</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="rank-display">—</div>
-                <div class="stat-label">Classroom Rank</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="progress-percent">0%</div>
-                <div class="stat-label">Route Progress</div>
-            </div>
-        </div>
-
-        <!-- INSCRIPCIÓN A AULA -->
-        <div class="section-card">
-            <h2 class="feature-title" style="font-size: 1.25rem;">Classroom Enrolment</h2>
-            <p class="hero-description" style="margin-top: 0.5rem;">Enter your instructor's access code (e.g. ADSO331).</p>
+    <!-- MAIN CONTENT -->
+    <main class="main-wrapper">
+        <div class="dashboard-container">
             
-            <form id="form-enrolment" class="input-inline">
-                <input type="text" id="class-code" placeholder="Código del aula..." class="input-group" style="margin: 0; flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--gris-borde); border-radius: 10px;" required>
-                <button type="submit" class="btn btn-primary">Unirse</button>
-            </form>
-            <p id="enrolment-error" class="error oculto" style="color: red; font-size: 0.8rem; margin-top: 0.5rem;"></p>
+            <!-- BIENVENIDA CON FOTO GRANDE -->
+            <section class="welcome-card">
+                <div class="welcome-photo-large" id="welcome-profile-photo"></div>
+                <div class="welcome-info">
+                    <span class="badge-category">Aprendiz · ADSO</span>
+                    <h1 class="welcome-title">Welcome, <span class="text-gradient" id="welcome-name">Aprendiz</span></h1>
+                    <p class="welcome-description">Your personalised technical English learning pathway.</p>
+                </div>
+            </section>
+
+            <!-- TARJETAS DE ESTADÍSTICAS -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="streak-count">0</div>
+                    <div class="stat-label">Study Streak (Days)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="points-count">0</div>
+                    <div class="stat-label">Learning Points</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="rank-display">—</div>
+                    <div class="stat-label">Classroom Rank</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="progress-percent">0%</div>
+                    <div class="stat-label">Route Progress</div>
+                </div>
+            </section>
+
+            <!-- INSCRIPCIÓN A AULA -->
+            <section class="section-card">
+                <h2 class="feature-title">Classroom Enrolment</h2>
+                <p class="section-description">Enter your instructor's access code (e.g. ADSO331).</p>
+                
+                <form id="form-enrolment" class="input-inline">
+                    <input type="text" id="class-code" placeholder="Classroom code..." class="form-input" required>
+                    <button type="submit" class="btn-primary">Join Class</button>
+                </form>
+                <p id="enrolment-error" class="error-msg oculto"></p>
+            </section>
+
         </div>
     </main>
 
@@ -81,7 +102,7 @@
     <footer class="footer">
         <div class="footer-bottom">
             <div class="footer-bottom-container">
-                <p>&copy; 2026 SENALingua — Panel de Aprendiz.</p>
+                <p>&copy; 2026 SENA Lingua — Technical English Platform for Developers.</p>
             </div>
         </div>
     </footer>

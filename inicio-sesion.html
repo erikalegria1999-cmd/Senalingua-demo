@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Create your SENA Lingua account to learn technical English focused on software development.">
-    <title>SENA Lingua — Sign Up</title>
+    <meta name="description" content="Log in to your SENA Lingua account to access your technical English lessons and resources.">
+    <title>SENA Lingua — Log In</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CDN SweetAlert2 -->
+    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- HOJAS DE ESTILO -->
     <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/inicio-sesion.css">
 </head>
 <body>
 
@@ -36,7 +36,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="aprendices.html">Students</a></li>
+                    <li><a href="aprendices.html">Students</a></li>                    
                     <li><a href="leccion.html">Lessons</a></li>
                 </ul>
 
@@ -51,32 +51,31 @@
     <!-- MAIN CONTENT -->
     <main class="main-wrapper">
         <div class="card-container">
-            <span class="tag-pill">+ ADSO - TECHNICAL ENGLISH</span>
-            <h1 class="card-title">Create your account</h1>
-            <p class="card-subtitle">Sign up with your institutional email address to start learning.</p>
+            <span class="tag-pill">+ SENALINGUA</span>
+            <h1 class="card-title">Log in to your account</h1>
+            <p class="card-subtitle">Enter your institutional credentials to access the platform.</p>
 
-            <form id="form-registro" class="form-layout">
+            <form id="form-login" class="form-layout">
                 <div class="input-group">
-                    <label for="nombre">Full Name</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="e.g. Carlos Pérez" required autocomplete="name">
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input type="email" id="email" name="email" placeholder="user@sena.edu.co" required autocomplete="email">
                 </div>
 
                 <div class="input-group">
-                    <label for="correo">Email Address</label>
-                    <input type="email" id="correo" name="correo" placeholder="user@sena.edu.co" required autocomplete="email">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password">
                 </div>
 
-                <div class="input-group">
-                    <label for="clave">Password</label>
-                    <input type="password" id="clave" name="clave" placeholder="••••••••••••" required autocomplete="new-password">
+                <div class="forgot-wrapper">
+                    <a href="#" class="forgot-link">Forgot password?</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-submit-register">Continue</button>
+                <button type="submit" class="btn btn-primary btn-submit-login">Log In</button>
             </form>
 
             <div class="card-footer-text">
-                <span>Already have an account?</span>
-                <a href="inicio-sesion.html">Log in here</a>
+                <span>Don't have an account?</span>
+                <a href="registro.html">Sign up here</a>
             </div>
         </div>
     </main>
@@ -90,7 +89,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE REGISTRO -->
-    <script src="js/registro.js"></script>
+    <!-- SCRIPT DE INICIO DE SESIÓN -->
+    <script src="js/inicio-sesion.js"></script>
 </body>
 </html>

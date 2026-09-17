@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technical English Placement Test — SENA Lingua">
+    <title>SENA Lingua — Placement Test</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- HOJAS DE ESTILO -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/examen-ingles.css">
+</head>
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="navbar-container">
+                <a href="index.html" class="logo">SENA<span> Lingua</span></a>
+                <span class="tag-pill">+ PLACEMENT TEST</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-wrapper">
+        <div class="quiz-card-container">
+            <div class="quiz-header">
+                <span class="step-indicator" id="stepIndicator">Question 1 of 5</span>
+                <h1 class="quiz-title">English Skills Assessment</h1>
+                <p class="quiz-subtitle">Answer the following technical questions to determine your starting English level.</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <!-- CONTENEDOR DE LA PREGUNTA -->
+            <form id="quizForm" class="quiz-body">
+                <div id="questionContainer">
+                    <!-- Contenido dinámico mediante JavaScript -->
+                </div>
+
+                <div class="quiz-actions">
+                    <button type="button" id="btnNext" class="btn-primary">Next Question</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 SENA Lingua — Technical English Platform for Developers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/datos.js"></script>
+    <script src="js/examen-ingles.js"></script>
+</body>
+</html>

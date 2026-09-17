@@ -6,42 +6,42 @@
     padding: 1rem 2rem;
     background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--gris-borde);
+    border-bottom: 1px solid var(--gris-borde, #e2e8f0);
 }
 
 .nav-left-pill {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    background-color: var(--blanco);
+    background-color: var(--blanco, #ffffff);
     padding: 0.375rem 0.875rem 0.375rem 0.5rem;
     border-radius: 30px;
-    border: 1px solid var(--verde-claro);
+    border: 1px solid var(--verde-claro, #e6f8f0);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
 .btn-back {
-    background-color: var(--blanco);
-    border: 1px solid var(--gris-borde);
+    background-color: var(--blanco, #ffffff);
+    border: 1px solid var(--gris-borde, #e2e8f0);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--azul-gris);
+    color: var(--azul-gris, #64748b);
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
 .btn-back:hover {
-    background-color: var(--verde-suave);
-    color: var(--texto-oscuro);
+    background-color: var(--verde-suave, #f0fdf4);
+    color: var(--texto-oscuro, #1e293b);
 }
 
 .brand-logo {
     font-size: 0.875rem;
     font-weight: 800;
-    color: var(--verde-principal);
+    color: var(--verde-principal, #00b86b);
     letter-spacing: -0.02em;
 }
 
@@ -50,10 +50,11 @@
     align-items: center;
     gap: 0.625rem;
 }
+
 .badge-green {
-    background-color: var(--verde-claro);
-    color: var(--verde-hover);
-    border: 1px solid var(--verde-claro);
+    background-color: var(--verde-claro, #e6f8f0);
+    color: var(--verde-hover, #009657);
+    border: 1px solid var(--verde-claro, #e6f8f0);
     padding: 0.375rem 0.875rem;
     border-radius: 20px;
     font-size: 0.7rem;
@@ -62,9 +63,9 @@
 }
 
 .badge-lang {
-    background-color: var(--blanco);
-    color: var(--azul-gris);
-    border: 1px solid var(--gris-borde);
+    background-color: var(--blanco, #ffffff);
+    color: var(--azul-gris, #64748b);
+    border: 1px solid var(--gris-borde, #e2e8f0);
     padding: 0.375rem 0.875rem;
     border-radius: 20px;
     font-size: 0.7rem;
@@ -78,22 +79,24 @@
     justify-content: center;
     align-items: center;
     padding: 2rem 1.25rem;
+    min-height: calc(100vh - 180px);
 }
 
 .card-container {
-    background-color: var(--blanco);
+    background-color: var(--blanco, #ffffff);
     width: 100%;
     max-width: 440px;
     padding: 2.5rem 2.25rem;
     border-radius: 24px;
-    border: 1px solid var(--gris-borde);
-    box-shadow: var(--sombra-suave);
+    border: 1px solid var(--gris-borde, #e2e8f0);
+    box-shadow: var(--sombra-suave, 0 10px 25px rgba(0, 0, 0, 0.03));
     text-align: center;
 }
+
 .tag-pill {
     display: inline-block;
-    background-color: var(--verde-claro);
-    color: var(--verde-principal);
+    background-color: var(--verde-claro, #e6f8f0);
+    color: var(--verde-principal, #00b86b);
     font-size: 0.65rem;
     font-weight: 800;
     padding: 0.35rem 0.875rem;
@@ -102,16 +105,18 @@
     margin-bottom: 1.25rem;
     text-transform: uppercase;
 }
+
 .card-title {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--verde-principal);
+    color: var(--verde-principal, #00b86b);
     margin-bottom: 0.625rem;
     letter-spacing: -0.02em;
 }
+
 .card-subtitle {
     font-size: 0.75rem;
-    color: var(--azul-gris);
+    color: var(--azul-gris, #64748b);
     line-height: 1.5;
     margin-bottom: 1.75rem;
     padding: 0 0.625rem;
@@ -123,71 +128,109 @@
     flex-direction: column;
     text-align: left;
 }
+
 .input-group {
     margin-bottom: 1.25rem;
 }
+
 .input-group label {
     display: block;
     font-size: 0.65rem;
     font-weight: 800;
-    color: var(--verde-principal);
+    color: var(--verde-principal, #00b86b);
     margin-bottom: 0.5rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
+
 .input-group input {
     width: 100%;
     padding: 0.8rem 1rem;
-    border: 1px solid var(--gris-borde);
+    border: 1px solid var(--gris-borde, #e2e8f0);
     border-radius: 10px;
-    background-color: var(--blanco);
+    background-color: var(--blanco, #ffffff);
     font-size: 0.85rem;
-    color: var(--texto-oscuro);
+    color: var(--texto-oscuro, #1e293b);
     outline: none;
     transition: all 0.2s ease;
+    box-sizing: border-box;
 }
+
 .input-group input::placeholder {
-    color: var(--azul-gris);
+    color: var(--azul-gris, #64748b);
     opacity: 0.6;
 }
+
 .input-group input:focus {
-    border-color: var(--verde-principal);
+    border-color: var(--verde-principal, #00b86b);
     box-shadow: 0 0 0 3px rgba(0, 184, 107, 0.15);
 }
-/* BOTONES INTEGRADOS */
+
+/* BOTONES Y ENLACES */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: var(--verde-principal, #00b86b);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 184, 107, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--verde-hover, #009657);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 184, 107, 0.3);
+}
+
 .btn-submit-login {
     width: 100%;
     margin-top: 0.5rem;
     text-align: center;
 }
+
 .forgot-wrapper {
     text-align: right;
     margin-bottom: 1rem;
     margin-top: -0.375rem;
 }
+
 .forgot-link {
     font-size: 0.7rem;
     font-weight: 700;
-    color: var(--verde-principal);
+    color: var(--verde-principal, #00b86b);
     text-decoration: none;
 }
+
 .forgot-link:hover {
     text-decoration: underline;
+}
 
-}.card-footer-text {
+.card-footer-text {
     margin-top: 1.75rem;
     font-size: 0.75rem;
-    color: var(--azul-gris);
+    color: var(--azul-gris, #64748b);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.375rem;
 }
+
 .card-footer-text a {
-    color: var(--verde-principal);
+    color: var(--verde-principal, #00b86b);
     font-weight: 700;
     text-decoration: none;
 }
+
 .card-footer-text a:hover {
     text-decoration: underline;
 }

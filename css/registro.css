@@ -1,0 +1,172 @@
+/* CONTENEDOR PRINCIPAL Y TARJETA (CARD) */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1.25rem;
+    min-height: calc(100vh - 180px);
+}
+
+.card-container {
+    background-color: var(--blanco, #ffffff);
+    width: 100%;
+    max-width: 440px;
+    padding: 2.5rem 2.25rem;
+    border-radius: 24px;
+    border: 1px solid var(--gris-borde, #e2e8f0);
+    box-shadow: var(--sombra-suave, 0 10px 25px rgba(0, 0, 0, 0.03));
+    text-align: center;
+}
+
+.tag-pill {
+    display: inline-block;
+    background-color: var(--verde-claro, #e6f8f0);
+    color: var(--verde-principal, #00b86b);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.35rem 0.875rem;
+    border-radius: 20px;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--verde-principal, #00b86b);
+    margin-bottom: 0.625rem;
+    letter-spacing: -0.02em;
+}
+
+.card-subtitle {
+    font-size: 0.75rem;
+    color: var(--azul-gris, #64748b);
+    line-height: 1.5;
+    margin-bottom: 1.75rem;
+    padding: 0 0.625rem;
+}
+
+/* FORMULARIO E INPUTS */
+.form-layout {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 1.25rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--verde-principal, #00b86b);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--gris-borde, #e2e8f0);
+    border-radius: 10px;
+    background-color: var(--blanco, #ffffff);
+    font-size: 0.85rem;
+    color: var(--texto-oscuro, #1e293b);
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+    color: var(--azul-gris, #64748b);
+    opacity: 0.6;
+}
+
+.input-group input:focus {
+    border-color: var(--verde-principal, #00b86b);
+    box-shadow: 0 0 0 3px rgba(0, 184, 107, 0.15);
+}
+
+/* BOTONES Y ENLACES */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: var(--verde-principal, #00b86b);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 184, 107, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--verde-hover, #009657);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 184, 107, 0.3);
+}
+
+.btn-submit-register {
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.card-footer-text {
+    margin-top: 1.75rem;
+    font-size: 0.75rem;
+    color: var(--azul-gris, #64748b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.card-footer-text a {
+    color: var(--verde-principal, #00b86b);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.card-footer-text a:hover {
+    text-decoration: underline;
+}
+/* ESTILOS PERSONALIZADOS PARA SWEETALERT2 */
+.custom-swal-popup {
+    padding: 2rem 1.5rem !important;
+    border-radius: 20px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.custom-swal-title {
+    color: #00b86b !important;
+    font-weight: 800 !important;
+    font-size: 1.25rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.custom-swal-text {
+    color: #64748b !important;
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+}
+
+.custom-swal-btn {
+    border-radius: 10px !important;
+    padding: 0.6rem 2rem !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    box-shadow: 0 4px 12px rgba(0, 184, 107, 0.25) !important;
+}
